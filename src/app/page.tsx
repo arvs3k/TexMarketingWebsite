@@ -7,9 +7,10 @@ import { applicationCategories } from "@/lib/data/applications";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "Krisons Marketing — Thermal Bond Non-Woven & Coated Fabrics",
+  title:
+    "Krisons Marketing — Non-Woven Interlining & Coated Fabric Manufacturer, India",
   description:
-    "Manufacturer of thermal bond non-woven interlining, microdot fusible interlining and coated fabrics. Established 1992 · Chennai, Karur, Erode · 2 million metres per month.",
+    "Indian manufacturer of thermal bond non-woven interlining, microdot fusible interlining and coated fabrics. Established 1992 · 2 million metres/month · on-time delivery across borders.",
   path: "/",
 });
 
@@ -51,8 +52,9 @@ export default function HomePage() {
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
             Krisons Marketing manufactures thermal bond non-woven interlining
             and coated fabrics for apparel, industrial, automotive and
-            home-textile applications — three decades of textile expertise from
-            South India&apos;s textile heartland.
+            home-textile applications — three decades of expertise from South
+            India&apos;s textile heartland, with a supply chain built for
+            punctual delivery across borders.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -62,10 +64,10 @@ export default function HomePage() {
               Explore products
             </Link>
             <Link
-              href="/contact"
+              href="/contact#enquiry"
               className="rounded-md border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Contact us
+              Send an enquiry
             </Link>
           </div>
 
@@ -127,6 +129,64 @@ export default function HomePage() {
           ))}
         </div>
       </Section>
+
+      {/* Export readiness */}
+      <section className="dot-grid bg-ink-900 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-copper-100">
+            Global sourcing
+          </p>
+          <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
+            Built for import/export orders
+          </h2>
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                title: "Volume capacity",
+                text: "2,000,000 metres a month from a modern factory commissioned in 2019 — scale for ongoing programmes, not just spot orders.",
+              },
+              {
+                title: "International-standard QA",
+                text: "Rigorous, multi-stage testing in our in-house laboratory ensures every yard meets international standards.",
+              },
+              {
+                title: "Cross-border logistics",
+                text: "A streamlined supply chain designed for punctual, on-time delivery across borders.",
+              },
+              {
+                title: "Raw-material security",
+                text: "A strategic sourcing network insulates your production from market volatility.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-lg border border-white/10 bg-white/5 p-6"
+              >
+                <h3 className="font-display font-bold text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-white/70">
+                  {item.text}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-10 flex flex-wrap gap-4">
+            <a
+              href="/krisons-company-profile.pdf"
+              className="rounded-md bg-copper-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-copper-700"
+            >
+              Download company profile (PDF, 1.3 MB)
+            </a>
+            <Link
+              href="/contact#enquiry"
+              className="rounded-md border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              Send an enquiry
+            </Link>
+          </div>
+        </div>
+      </section>
 
       {/* Applications teaser */}
       <Section

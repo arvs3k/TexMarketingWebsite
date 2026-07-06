@@ -19,7 +19,7 @@ export default function CTABand({
           <p className="mt-2 text-white/70">{subtext}</p>
         </div>
         <Link
-          href="/contact"
+          href="/contact#enquiry"
           className="inline-block shrink-0 rounded-md bg-copper-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-copper-700"
         >
           Contact us

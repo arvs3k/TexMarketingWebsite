@@ -12,9 +12,9 @@ import {
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  title: "About Us",
+  title: "About Us — Non-Woven Fabric Manufacturer Since 1992",
   description:
-    "Three decades in industrial textiles: from hardware for leather goods in 1992 to a modern non-woven and coated fabric factory in Erode producing 2 million metres a month.",
+    "Three decades in Indian industrial textiles: from hardware for leather goods in 1992 to a modern non-woven and coated fabric factory in Erode producing 2 million metres a month for domestic and international buyers.",
   path: "/about",
 });
 
@@ -69,6 +69,14 @@ export default function AboutPage() {
           headers={["Detail", "Value"]}
           rows={companyFacts.map((f) => [f.label, f.value])}
         />
+        <p className="mt-6">
+          <a
+            href="/krisons-company-profile.pdf"
+            className="font-semibold text-copper-600 hover:text-copper-700"
+          >
+            Download the full company profile (PDF, 1.3 MB) →
+          </a>
+        </p>
       </Section>
 
       <CTABand />

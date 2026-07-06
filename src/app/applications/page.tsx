@@ -11,7 +11,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Applications",
   description:
-    "Where thermal bond non-woven interlining is used: apparel manufacturing, technical and industrial filtration, automotive interiors, and home textiles.",
+    "Where thermal bond non-woven interlining from our Indian factory is used: apparel manufacturing, technical and industrial filtration, automotive interiors, and home textiles.",
   path: "/applications",
 });
 

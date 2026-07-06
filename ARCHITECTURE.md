@@ -51,12 +51,31 @@ Defined in `globals.css` via Tailwind v4 `@theme`:
 ## SEO
 
 - Per-page `title`/`description`/OG via `buildMetadata()` in `src/lib/metadata.ts`
-- `metadataBase` + title template in `app/layout.tsx`
-- `app/sitemap.ts` generates sitemap.xml
-- TODO: set real production domain in `siteUrl` (or `NEXT_PUBLIC_SITE_URL`); add OG image
+- `metadataBase` + title template + twitter card in `app/layout.tsx`
+- `app/sitemap.ts` + `app/robots.ts`
+- JSON-LD: Organization (layout) and Product ItemList (products page) in `src/lib/jsonld.ts`
+- Brand assets generated at build time: `app/icon.tsx` (favicon), `app/opengraph-image.tsx` (1200×630 OG image)
+- Canonical domain: krisonsmarketing.com (override with `NEXT_PUBLIC_SITE_URL`)
+- Positioning: copy targets export/international apparel buyers ("delivery across
+  borders", "manufacturer, India" titles)
+
+## Enquiry form
+
+`src/components/EnquiryForm.tsx` (client) on `/contact#enquiry` posts to Web3Forms
+(no backend, no npm dep). Requires `NEXT_PUBLIC_WEB3FORMS_KEY` (see `.env.example`);
+without it the form shows an email-us fallback on submit. Honeypot field for spam.
+
+## Export positioning
+
+- Home: "Built for import/export orders" band (capacity, QA, logistics, sourcing — all PDF-backed)
+- `/contact`: buyer FAQ (`src/lib/data/faq.ts`) with FAQPage JSON-LD
+- `public/krisons-company-profile.pdf` — ghostscript-compressed (13.7 MB → 1.3 MB) supplier
+  profile, linked from Home and About. Source PDF is in Git LFS (`.gitattributes` tracks `*.pdf`),
+  so this download also goes through LFS — Vercel must have Git LFS enabled (it evidently is).
 
 ## TODOs / notes
 
+- Get Web3Forms key (free, web3forms.com) and set env vars in Vercel
 - Gallery uses placeholders — replace with real factory/product photos
 - Coating-type descriptions in `lib/data/products.ts` are generic industry
   explanations (the PDF only names the four types) — have the business verify wording

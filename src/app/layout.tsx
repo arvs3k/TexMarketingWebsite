@@ -3,6 +3,7 @@ import { Archivo, Inter } from "next/font/google";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { siteName, siteUrl } from "@/lib/metadata";
+import { jsonLdString, organizationJsonLd } from "@/lib/jsonld";
 import "./globals.css";
 
 const archivo = Archivo({
@@ -22,7 +23,10 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Krisons Marketing manufactures thermal bond non-woven interlining, microdot fusible interlining and coated fabrics in Erode, Tamil Nadu. Established 1992, producing 2 million metres per month.",
+    "Indian manufacturer of thermal bond non-woven interlining, microdot fusible interlining and coated fabrics. Established 1992, producing 2 million metres per month with on-time delivery across borders.",
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -31,6 +35,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: jsonLdString(organizationJsonLd) }}
+        />
         <NavBar />
         <main className="flex-1">{children}</main>
         <Footer />

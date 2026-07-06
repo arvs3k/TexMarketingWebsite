@@ -10,17 +10,22 @@ import {
   thermalBondSpecs,
 } from "@/lib/data/products";
 import { buildMetadata } from "@/lib/metadata";
+import { jsonLdString, productsJsonLd } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "Products",
+  title: "Products — Non-Woven Interlining Manufacturer, India",
   description:
-    "Thermal bond non-woven fabric (23–80 GSM, up to 200 cm) and microdot fusible interlining in 13 articles with polyester/polyamide paste dot and double dot coatings.",
+    "Thermal bond non-woven fabric (23–80 GSM, up to 200 cm) and microdot fusible interlining in 13 articles with polyester/polyamide paste dot and double dot coatings. Manufactured in Erode, India.",
   path: "/products",
 });
 
 export default function ProductsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdString(productsJsonLd) }}
+      />
       <PageHeader
         eyebrow="Products"
         title="Non-woven & coated fabrics"
