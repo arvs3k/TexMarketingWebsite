@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand palette — industrial navy + copper accent on warm paper */
+  --color-ink-950: #10161f;
+  --color-ink-900: #16202e;
+  --color-ink-800: #1f2d40;
+  --color-ink-700: #2b3d55;
+  --color-ink-500: #4d5e75;
+  --color-paper: #faf9f6;
+  --color-paper-dark: #f1efe9;
+  --color-copper-600: #b4551f;
+  --color-copper-700: #94430f;
+  --color-copper-100: #f7e8dd;
+
+  --font-display: var(--font-archivo), system-ui, sans-serif;
+  --font-body: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  @apply bg-paper text-ink-900 font-body antialiased;
+}
+
+/* Microdot motif — echoes the dot-coating pattern of the product line */
+.dot-grid {
+  background-image: radial-gradient(
+    circle,
+    rgb(255 255 255 / 0.14) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
+
+.dot-grid-dark {
+  background-image: radial-gradient(
+    circle,
+    rgb(22 32 46 / 0.1) 1px,
+    transparent 1px
+  );
+  background-size: 18px 18px;
+}
