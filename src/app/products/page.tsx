@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import SpecTable from "@/components/SpecTable";
@@ -15,7 +16,7 @@ import { jsonLdString, productsJsonLd } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Products — Non-Woven Interlining Manufacturer, India",
   description:
-    "Thermal bond non-woven fabric (23–80 GSM, up to 200 cm) and microdot fusible interlining in 13 articles with polyester/polyamide paste dot and double dot coatings. Manufactured in Erode, India.",
+    "Thermal bond non-woven fabric (23–80 GSM, up to 200 cm) and microdot fusible interlining in 13 articles with polyester/polyamide paste dot and double dot coatings. Manufactured in India.",
   path: "/products",
 });
 
@@ -29,7 +30,7 @@ export default function ProductsPage() {
       <PageHeader
         eyebrow="Products"
         title="Non-woven & coated fabrics"
-        intro="Manufactured in Erode on modern machinery with in-house testing — from lightweight interlinings to industrial geo-textiles."
+        intro="Manufactured on modern machinery in South India's textile heartland, with in-house testing — from lightweight interlinings to industrial geo-textiles."
       />
 
       <Section
@@ -38,11 +39,33 @@ export default function ProductsPage() {
         title="Thermal Bond Non-Woven Fabric"
         intro="A breathable, water-permeable polyester web available in a wide range of weights, widths and colours."
       >
-        <SpecTable
-          caption="Thermal bond non-woven fabric specifications"
-          headers={["Specification", "Detail"]}
-          rows={thermalBondSpecs.map((s) => [s.label, s.value])}
-        />
+        <div className="grid items-start gap-8 lg:grid-cols-5">
+          <div className="lg:col-span-3">
+            <SpecTable
+              caption="Thermal bond non-woven fabric specifications"
+              headers={["Specification", "Detail"]}
+              rows={thermalBondSpecs.map((s) => [s.label, s.value])}
+            />
+          </div>
+          <div className="grid gap-4 lg:col-span-2">
+            <Image
+              src="/images/rolls-white.webp"
+              alt="White thermal bond non-woven fabric rolls"
+              width={1600}
+              height={1067}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="rounded-lg border border-ink-900/10 shadow-sm"
+            />
+            <Image
+              src="/images/roll-dark-closeup.webp"
+              alt="Close-up of a charcoal non-woven fabric roll edge"
+              width={1600}
+              height={1067}
+              sizes="(min-width: 1024px) 40vw, 100vw"
+              className="rounded-lg border border-ink-900/10 shadow-sm"
+            />
+          </div>
+        </div>
       </Section>
 
       <Section
@@ -72,6 +95,24 @@ export default function ProductsPage() {
           ])}
           footnote={microdotLegend}
         />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <Image
+            src="/images/microdot-blue.webp"
+            alt="Microdot fusible interlining fused to blue garment fabric"
+            width={1200}
+            height={800}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="rounded-lg border border-ink-900/10 shadow-sm"
+          />
+          <Image
+            src="/images/microdot-texture-dark.webp"
+            alt="Dot-coating pattern on dark microdot interlining"
+            width={1600}
+            height={1067}
+            sizes="(min-width: 640px) 50vw, 100vw"
+            className="rounded-lg border border-ink-900/10 object-cover shadow-sm"
+          />
+        </div>
         <ul className="mt-8 flex flex-wrap gap-2">
           {microdotUses.map((use) => (
             <li

@@ -21,7 +21,9 @@ export default function Footer() {
           <p className="mt-3 max-w-xs text-sm leading-relaxed">
             {company.tagline}
           </p>
-          <p className="mt-3 text-sm">{company.locations}</p>
+          <p className="mt-3 text-sm">
+            Manufacturing in South India&apos;s textile heartland
+          </p>
         </div>
 
         <nav aria-label="Footer" className="text-sm">

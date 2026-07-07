@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import Timeline from "@/components/Timeline";
@@ -28,7 +30,44 @@ export default function AboutPage() {
       />
 
       <Section eyebrow="Our journey" title="From hardware to high-performance fabrics">
-        <Timeline items={timeline} />
+        <div className="grid items-start gap-10 lg:grid-cols-2">
+          <Timeline items={timeline} />
+          <div className="grid gap-4">
+            <Image
+              src="/images/factory-building.webp"
+              alt="Krisons Marketing factory building, commissioned 2019"
+              width={1200}
+              height={541}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="rounded-lg border border-ink-900/10 shadow-sm"
+            />
+            <Image
+              src="/images/factory-floor.webp"
+              alt="Non-woven fabric production line on the factory floor"
+              width={1200}
+              height={567}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="rounded-lg border border-ink-900/10 shadow-sm"
+            />
+            <Image
+              src="/images/testing-lab.webp"
+              alt="In-house quality testing laboratory"
+              width={1200}
+              height={567}
+              sizes="(min-width: 1024px) 50vw, 100vw"
+              className="rounded-lg border border-ink-900/10 shadow-sm"
+            />
+            <p className="text-sm text-ink-500">
+              The factory, production line and in-house testing laboratory —{" "}
+              <Link
+                href="/gallery"
+                className="font-semibold text-copper-600 hover:text-copper-700"
+              >
+                see more in the gallery →
+              </Link>
+            </p>
+          </div>
+        </div>
       </Section>
 
       <Section

@@ -25,13 +25,13 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 30,
-            letterSpacing: 6,
+            fontSize: 24,
+            letterSpacing: 3,
             color: "#f7e8dd",
             textTransform: "uppercase",
           }}
         >
-          Est. 1992 · Chennai · Karur · Erode
+          Non-Woven Fabric Manufacturer · India · Est. 1992
         </div>
         <div
           style={{

@@ -71,8 +71,8 @@ export default function ContactPage() {
 
       <Section
         eyebrow="Locations"
-        title="Chennai · Karur · Erode"
-        intro="Head office in the state capital, branch office and factory in the centre of South India's textile hub."
+        title="Where we operate"
+        intro="Head office in Chennai — one of India's major port cities — with our branch office in Karur and factory in Erode, at the centre of South India's textile industry."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {addresses.map((addr) => (

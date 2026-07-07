@@ -73,10 +73,16 @@ without it the form shows an email-us fallback on submit. Honeypot field for spa
   profile, linked from Home and About. Source PDF is in Git LFS (`.gitattributes` tracks `*.pdf`),
   so this download also goes through LFS — Vercel must have Git LFS enabled (it evidently is).
 
+## Imagery
+
+`public/images/*.webp` — 14 photos extracted from the company profile PDF
+(ghostscript/pdfimages, re-encoded to WebP, ~1.6 MB total). Used via `next/image`
+(lazy-loaded except the home hero, which is `priority`). Skipped: QR code,
+clip-art, logo tile, off-brand stock shots. Source-of-truth PDF lives in Git LFS.
+
 ## TODOs / notes
 
 - Get Web3Forms key (free, web3forms.com) and set env vars in Vercel
-- Gallery uses placeholders — replace with real factory/product photos
 - Coating-type descriptions in `lib/data/products.ts` are generic industry
   explanations (the PDF only names the four types) — have the business verify wording
 - No ESLint config yet; add if desired

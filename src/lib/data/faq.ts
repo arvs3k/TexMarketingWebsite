@@ -18,7 +18,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What is your production capacity?",
     answer:
-      "Our Erode factory, commissioned in 2019 with modern machinery, produces up to 2,000,000 metres of fabric per month with in-house laboratory testing at every stage.",
+      "Our factory in South India's textile heartland, commissioned in 2019 with modern machinery, produces up to 2,000,000 metres of fabric per month with in-house laboratory testing at every stage.",
   },
   {
     question: "Do you supply international buyers?",

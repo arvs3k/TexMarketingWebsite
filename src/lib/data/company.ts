@@ -25,7 +25,6 @@ export const company = {
   tagline: "Thermal bond non-woven and coated fabrics, engineered in South India's textile heartland.",
   established: 1992,
   email: "krisonsmarketing@gmail.com",
-  locations: "Chennai | Karur | Erode",
   capacityPerMonth: "2,000,000 m",
 } as const;
 
@@ -88,7 +87,7 @@ export const timeline: TimelineItem[] = [
     year: "Today",
     title: "2 million metres a month",
     description:
-      "Serving apparel, industrial, automotive and home-textile markets from Chennai, Karur and Erode.",
+      "Serving apparel, industrial, automotive and home-textile buyers from South India's textile heartland.",
   },
 ];
 

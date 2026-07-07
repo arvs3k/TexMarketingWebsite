@@ -1,3 +1,4 @@
+import Image from "next/image";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import SpecTable from "@/components/SpecTable";
@@ -30,6 +31,14 @@ export default function FusingGuidePage() {
         eyebrow="Before you start"
         title="Pre-fusing preparation"
       >
+        <Image
+          src="/images/fusing-press.webp"
+          alt="Flat bed fusing press bonding interlining to patterned fabric"
+          width={1200}
+          height={800}
+          sizes="(min-width: 768px) 66vw, 100vw"
+          className="mb-10 w-full max-w-3xl rounded-lg border border-ink-900/10 shadow-sm"
+        />
         <div className="grid gap-6 md:grid-cols-3">
           {preFusingChecklist.map((item) => (
             <div

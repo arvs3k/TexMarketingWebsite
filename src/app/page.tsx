@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/Section";
 import StatBadge from "@/components/StatBadge";
@@ -39,10 +40,22 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="dot-grid bg-ink-900">
-        <div className="mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
+      <section className="relative overflow-hidden bg-ink-900">
+        <Image
+          src="/images/hero-fabric-rolls.webp"
+          alt="White and black thermal bond non-woven fabric rolls"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div
+          aria-hidden
+          className="dot-grid absolute inset-0 bg-gradient-to-r from-ink-950/80 via-ink-900/50 to-transparent"
+        />
+        <div className="relative mx-auto max-w-6xl px-4 py-24 sm:px-6 sm:py-32">
           <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-copper-100">
-            {company.locations} · Established {company.established}
+            Non-woven fabric manufacturer · India · Est. {company.established}
           </p>
           <h1 className="max-w-4xl font-display text-4xl font-bold leading-tight tracking-tight text-white sm:text-6xl">
             The fabric you never see,
