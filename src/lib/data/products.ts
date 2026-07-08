@@ -47,14 +47,66 @@ export const microdotArticles: MicrodotArticle[] = [
 export const microdotLegend =
   "W – White (Semi-Dull; Optical); B – Black; C – Charcoal; PES – Polyester; PA – Polyamide";
 
-export const microdotUses = [
-  "Ladies' garments",
-  "Children's garments",
-  "Blazers",
-  "Pocket mouths",
-  "Belt bands and belt loops",
-  "Quilt (wadding support)",
-] as const;
+export interface MicrodotDiagram {
+  src: string;
+  alt: string;
+  caption: string;
+  width: number;
+  height: number;
+}
+
+/** Garment-application diagrams from the company profile (brochure p. 7). */
+export const microdotDiagrams: MicrodotDiagram[] = [
+  {
+    src: "/images/diagram-ladies.webp",
+    alt: "Line drawings of ladies' tops reinforced with fusible interlining",
+    caption: "Ladies' garments",
+    width: 580,
+    height: 370,
+  },
+  {
+    src: "/images/diagram-childrens.webp",
+    alt: "Line drawing of a children's dress with fusible interlining",
+    caption: "Children's garments",
+    width: 300,
+    height: 340,
+  },
+  {
+    src: "/images/diagram-blazer.webp",
+    alt: "Line drawing of a blazer with front fusing and structured lapels",
+    caption: "Blazer",
+    width: 450,
+    height: 550,
+  },
+  {
+    src: "/images/diagram-trousers-front.webp",
+    alt: "Trousers front view showing belt band and pocket mouth interlining points",
+    caption: "Belt band & pocket mouth",
+    width: 380,
+    height: 910,
+  },
+  {
+    src: "/images/diagram-trousers-back.webp",
+    alt: "Trousers back view showing belt loop interlining points",
+    caption: "Belt loop",
+    width: 360,
+    height: 910,
+  },
+  {
+    src: "/images/diagram-quilt.webp",
+    alt: "Folded quilt supported by non-woven wadding",
+    caption: "Quilt (wadding support)",
+    width: 490,
+    height: 440,
+  },
+];
+
+export const microdotShirtDiagram = {
+  src: "/images/diagram-shirt-parts.webp",
+  alt: "Shirt interlining points: placket, collar stand interlining, cuff, main interlining, and seam, armhole and joint parts",
+  width: 2048,
+  height: 420,
+} as const;
 
 export const coatingTypes = [
   {

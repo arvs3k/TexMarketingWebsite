@@ -6,8 +6,9 @@ import CTABand from "@/components/CTABand";
 import {
   coatingTypes,
   microdotArticles,
+  microdotDiagrams,
   microdotLegend,
-  microdotUses,
+  microdotShirtDiagram,
   thermalBondSpecs,
 } from "@/lib/data/products";
 import { buildMetadata } from "@/lib/metadata";
@@ -113,16 +114,45 @@ export default function ProductsPage() {
             className="rounded-lg border border-ink-900/10 object-cover shadow-sm"
           />
         </div>
-        <ul className="mt-8 flex flex-wrap gap-2">
-          {microdotUses.map((use) => (
-            <li
-              key={use}
-              className="rounded-full border border-ink-900/15 bg-white px-4 py-1.5 text-sm text-ink-700"
+        <h3 className="mt-12 font-display text-xl font-bold text-ink-900">
+          Where it goes in a garment
+        </h3>
+        <figure className="mt-4 rounded-lg border border-ink-900/10 bg-white p-4 shadow-sm sm:p-6">
+          <Image
+            src={microdotShirtDiagram.src}
+            alt={microdotShirtDiagram.alt}
+            width={microdotShirtDiagram.width}
+            height={microdotShirtDiagram.height}
+            sizes="(min-width: 1152px) 1104px, 100vw"
+            className="w-full"
+          />
+          <figcaption className="mt-2 text-sm text-ink-500">
+            Shirt construction — placket, collar stand interlining, cuff, main
+            interlining, and seam/armhole joint parts.
+          </figcaption>
+        </figure>
+        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {microdotDiagrams.map((d) => (
+            <figure
+              key={d.src}
+              className="rounded-lg border border-ink-900/10 bg-white p-3 shadow-sm"
             >
-              {use}
-            </li>
+              <div className="flex aspect-[3/4] items-center justify-center">
+                <Image
+                  src={d.src}
+                  alt={d.alt}
+                  width={d.width}
+                  height={d.height}
+                  sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
+                  className="max-h-full w-auto object-contain"
+                />
+              </div>
+              <figcaption className="mt-2 text-center text-sm font-medium text-ink-700">
+                {d.caption}
+              </figcaption>
+            </figure>
           ))}
-        </ul>
+        </div>
       </Section>
 
       <Section
