@@ -5,8 +5,10 @@ const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
   { href: "/applications", label: "Applications" },
+  { href: "/quality", label: "Quality" },
   { href: "/fusing-guide", label: "Fusing Guide" },
   { href: "/gallery", label: "Gallery" },
+  { href: "/contact#samples", label: "Samples & inquiries" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -22,7 +24,7 @@ export default function Footer() {
             {company.tagline}
           </p>
           <p className="mt-3 text-sm">
-            Manufacturing in South India&apos;s textile heartland
+            Goods are made at our manufacturing plant in Erode.
           </p>
         </div>
 

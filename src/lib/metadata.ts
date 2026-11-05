@@ -24,7 +24,7 @@ export function buildMetadata({
       url: path,
       siteName,
       type: "website",
-      locale: "en_IN",
+      locale: "en_US",
     },
   };
 }

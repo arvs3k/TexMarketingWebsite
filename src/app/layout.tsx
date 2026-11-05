@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Indian manufacturer of thermal bond non-woven interlining, microdot fusible interlining and coated fabrics. Established 1992, producing 2 million metres per month with on-time delivery across borders.",
+    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Established 1992. 2 million meters a month. Selling in India; starting to export, with the United States as the first market.",
   twitter: {
     card: "summary_large_image",
   },
@@ -33,7 +33,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${inter.variable}`}>
+    <html lang="en-US" className={`${archivo.variable} ${inter.variable}`}>
       <body className="flex min-h-screen flex-col">
         <script
           type="application/ld+json"

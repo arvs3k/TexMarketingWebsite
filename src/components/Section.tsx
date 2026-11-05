@@ -18,7 +18,7 @@ export default function Section({
   className = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`py-16 sm:py-20 ${className}`}>
+    <section id={id} className={`scroll-mt-24 py-16 sm:py-20 ${className}`}>
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         {(eyebrow || title || intro) && (
           <div className="mb-10 max-w-3xl">

@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Gallery",
   description:
-    "Inside the Krisons Marketing factory: non-woven fabric production line, coating machinery, in-house testing laboratory and finished fabric range.",
+    "Our manufacturing plant in Erode: non-woven production, the in-house laboratory, and finished fabric.",
   path: "/gallery",
 });
 
@@ -22,29 +22,29 @@ interface GalleryImage {
 const images: GalleryImage[] = [
   {
     src: "/images/factory-floor.webp",
-    alt: "Wide view of the non-woven fabric production line",
+    alt: "Wide view of the non-woven fabric production line at our manufacturing plant in Erode",
     caption: "Non-woven fabric production line",
     width: 1200,
     height: 567,
   },
   {
     src: "/images/factory-floor-2.webp",
-    alt: "Factory floor with fabric rolls staged for processing",
-    caption: "Factory floor and finished rolls",
+    alt: "Production floor at our manufacturing plant in Erode, with fabric rolls staged for processing",
+    caption: "Production floor and finished rolls",
     width: 1200,
     height: 567,
   },
   {
     src: "/images/factory-building.webp",
-    alt: "Krisons Marketing factory building exterior",
-    caption: "The factory, commissioned December 2019",
+    alt: "Exterior of our manufacturing plant in Erode",
+    caption: "Our manufacturing plant in Erode, commissioned December 2019",
     width: 1200,
     height: 541,
   },
   {
     src: "/images/factory-gate.webp",
-    alt: "Factory entrance and gate",
-    caption: "Factory entrance",
+    alt: "Entrance of our manufacturing plant in Erode",
+    caption: "Plant entrance",
     width: 1200,
     height: 541,
   },
@@ -72,7 +72,7 @@ const images: GalleryImage[] = [
   {
     src: "/images/fabric-roll-detail.webp",
     alt: "Rolled fabric close-up",
-    caption: "Finished fabric ready for despatch",
+    caption: "Finished fabric ready for dispatch",
     width: 1200,
     height: 800,
   },
@@ -90,8 +90,8 @@ export default function GalleryPage() {
     <>
       <PageHeader
         eyebrow="Gallery"
-        title="Inside the factory"
-        intro="The production line, in-house testing laboratory and fabric range at our manufacturing unit in South India's textile heartland."
+        title="Our manufacturing plant in Erode"
+        intro="The production line, in-house laboratory, and fabric range at our manufacturing plant in Erode."
       />
 
       <Section>
@@ -120,8 +120,8 @@ export default function GalleryPage() {
       </Section>
 
       <CTABand
-        heading="Want to see the factory in person?"
-        subtext="Visits can be arranged through our head office."
+        heading="Want to visit?"
+        subtext="Visits to our manufacturing plant in Erode can be arranged through the head office in Chennai."
       />
     </>
   );

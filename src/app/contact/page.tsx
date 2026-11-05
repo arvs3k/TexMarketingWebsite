@@ -8,11 +8,30 @@ import { buildMetadata } from "@/lib/metadata";
 import { faqJsonLd, jsonLdString } from "@/lib/jsonld";
 
 export const metadata = buildMetadata({
-  title: "Contact — Enquiries & Export Orders",
+  title: "Contact — Samples & Inquiries",
   description:
-    "Send an enquiry to Krisons Marketing — non-woven interlining and coated fabric manufacturer in Tamil Nadu, India. International and domestic orders welcome.",
+    "Request a sample or a quote from Krisons Marketing. We currently sell only in India and are starting to export, with the United States as the first market. No prices or delivery terms are published.",
   path: "/contact",
 });
+
+const sampleSteps = [
+  {
+    title: "Name the product and the end use",
+    text: "Tell us which product you need: thermal bond non-woven, fusible interlining (microdot, polyester or polyamide paste dot, or double dot), woven interlining, coated fabric, or geo-textile. If you know the end use, say whether it is apparel interlining, filtration, automotive, or home textiles.",
+  },
+  {
+    title: "Send the specs you already have",
+    text: "Include GSM and ounces per square yard, width in centimeters and inches, color, and coating when you have them. Where a product is marked Specs on request, say which details you need confirmed.",
+  },
+  {
+    title: "Say sample, quote, or both",
+    text: "Say which of those you want. If you want a quote, put the quantity you have in mind in the message. Prices, discounts, delivery dates, lead times, minimum orders, and payment terms are not published here, and this site does not state a response time.",
+  },
+  {
+    title: "Use the form or email",
+    text: `Use the form on this page, or email ${company.email}. Include your name, company, email, and country, and the destination country if it is different.`,
+  },
+];
 
 export default function ContactPage() {
   return (
@@ -24,16 +43,36 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Talk to us"
-        intro="Specifications, samples, volume supply — send an enquiry or reach us directly. We work with domestic and international buyers."
+        intro="We currently sell only in India and are starting to export, with the United States as the first market. Use Samples & inquiries to request a sample or a quote."
       />
 
       <Section
-        id="enquiry"
-        eyebrow="Enquiry"
-        title="Send us your requirements"
-        intro="Tell us the product, GSM, width and quantity you need — we typically respond within one business day."
+        id="samples"
+        eyebrow="How to ask"
+        title="Samples & inquiries"
+        intro="Request a sample, a quote, or both. We follow up by email. This page does not list prices, discounts, delivery dates, lead times, minimum orders, or payment terms."
       >
-        <EnquiryForm />
+        <ol className="mb-10 space-y-4">
+          {sampleSteps.map((step, i) => (
+            <li
+              key={step.title}
+              className="flex gap-5 rounded-lg border border-ink-900/10 bg-white p-6 shadow-sm"
+            >
+              <span className="font-display text-2xl font-bold text-copper-600">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-display text-lg font-bold text-ink-900">
+                  {step.title}
+                </h3>
+                <p className="mt-1 leading-relaxed text-ink-700">{step.text}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+        <div id="enquiry" className="scroll-mt-24">
+          <EnquiryForm />
+        </div>
       </Section>
 
       <Section eyebrow="People" title="Who to call" className="bg-paper-dark">
@@ -72,7 +111,7 @@ export default function ContactPage() {
       <Section
         eyebrow="Locations"
         title="Where we operate"
-        intro="Head office in Chennai — one of India's major port cities — with our branch office in Karur and factory in Erode, at the centre of South India's textile industry."
+        intro="Head office in Chennai, branch office in Karur, and our manufacturing plant in Erode."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {addresses.map((addr) => (

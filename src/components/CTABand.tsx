@@ -7,7 +7,7 @@ interface CTABandProps {
 
 export default function CTABand({
   heading = "Let's discuss your fabric requirements",
-  subtext = "Talk to us about specifications, samples and volume supply.",
+  subtext = "Request specifications, a sample, or a quote.",
 }: CTABandProps) {
   return (
     <section className="dot-grid bg-ink-900 py-16">
@@ -19,7 +19,7 @@ export default function CTABand({
           <p className="mt-2 text-white/70">{subtext}</p>
         </div>
         <Link
-          href="/contact#enquiry"
+          href="/contact#samples"
           className="inline-block shrink-0 rounded-md bg-copper-600 px-6 py-3 font-semibold text-white transition-colors hover:bg-copper-700"
         >
           Contact us

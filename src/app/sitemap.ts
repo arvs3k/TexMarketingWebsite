@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/products",
     "/applications",
+    "/quality",
     "/fusing-guide",
     "/gallery",
     "/contact",
