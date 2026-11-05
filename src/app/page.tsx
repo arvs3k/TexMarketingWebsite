@@ -4,42 +4,108 @@ import Section from "@/components/Section";
 import StatBadge from "@/components/StatBadge";
 import CTABand from "@/components/CTABand";
 import { company, pillars } from "@/lib/data/company";
-import { applicationCategories } from "@/lib/data/applications";
+import {
+  applicationCategories,
+  applicationsIntro,
+} from "@/lib/data/applications";
+import {
+  FUSIBLE_WIDTHS_CM,
+  THERMAL_BOND_GSM_MAX,
+  THERMAL_BOND_GSM_MIN,
+  THERMAL_BOND_WIDTH_MAX_CM,
+  THERMAL_BOND_WIDTH_MIN_CM,
+} from "@/lib/data/products";
 import { buildMetadata } from "@/lib/metadata";
+import {
+  cmToInches,
+  formatCmRange,
+  formatGsmRange,
+  formatWidthChoices,
+  gsmToOzPerSqYd,
+} from "@/lib/units";
+
+const gsmRange = formatGsmRange(THERMAL_BOND_GSM_MIN, THERMAL_BOND_GSM_MAX);
+const widthRange = formatCmRange(
+  THERMAL_BOND_WIDTH_MIN_CM,
+  THERMAL_BOND_WIDTH_MAX_CM,
+);
+const fusibleWidths = formatWidthChoices(FUSIBLE_WIDTHS_CM);
 
 export const metadata = buildMetadata({
   title:
     "Krisons Marketing — Non-Woven Interlining & Coated Fabric Manufacturer, India",
   description:
-    "Indian manufacturer of thermal bond non-woven interlining, microdot fusible interlining and coated fabrics. Established 1992 · 2 million metres/month · on-time delivery across borders.",
+    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Manufacturing since 1992. 2 million meters a month. US and international buyers are welcome to request samples.",
   path: "/",
 });
 
 const productHighlights = [
   {
     name: "Thermal Bond Non-Woven Fabric",
-    description:
-      "Recycled or virgin polyester, 23–80 GSM, up to 200 cm wide. Water permeable and breathable.",
-    href: "/products",
+    description: `Recycled or virgin polyester, ${gsmRange}, ${widthRange}. Water permeable and breathable.`,
+    href: "/products#thermal-bond",
+    link: "View specifications",
   },
   {
-    name: "Microdot Fusible Interlining",
-    description:
-      "13 articles from 23 to 80 GSM with polyester or polyamide paste dot and double dot coating.",
+    name: "Fusible Interlining",
+    description: `Microdot, polyester and polyamide paste dot, and double dot. Thirteen articles, ${gsmRange}, widths ${fusibleWidths}.`,
     href: "/products#microdot",
+    link: "View specifications",
   },
   {
-    name: "Coated & Geo-Textile Fabrics",
+    name: "Woven Interlining",
     description:
-      "Microdot, paste dot, double dot and scatter coating, plus geo-textile fabric for industrial use.",
-    href: "/products#coatings",
+      "Woven interlining for apparel, made at our manufacturing plant in Erode. Specifications are supplied on request.",
+    href: "/products#woven-interlining",
+    link: "View product",
+  },
+  {
+    name: "Coated Fabric",
+    description:
+      "Coated fabric made at our manufacturing plant in Erode. Specifications are supplied on request.",
+    href: "/products#coated-fabric",
+    link: "View product",
+  },
+  {
+    name: "Geo-textile",
+    description:
+      "Geo-textile made at our manufacturing plant in Erode. Specifications are supplied on request.",
+    href: "/products#geo-textile",
+    link: "View product",
+  },
+  {
+    name: "Home Textiles",
+    description:
+      "Finished hard and soft pillows, a cushion, brown and navy bed runners, a quilted mattress protector, and a micro polyester mattress topper. Sizes are in inches and centimeters.",
+    href: "/home-textiles",
+    link: "View the range",
+  },
+];
+
+const buyerNotes = [
+  {
+    title: "Volume",
+    text: "Up to 2,000,000 meters a month at our manufacturing plant in Erode, commissioned in December 2019.",
+  },
+  {
+    title: "In-house laboratory",
+    text: "Fabric can be checked in the in-house laboratory. Named test methods and reports are not published until they are confirmed.",
+    href: "/quality",
+    link: "Quality page",
+  },
+  {
+    title: "Samples",
+    text: "We work with buyers who value a clear account of how goods are made. US and international buyers are welcome to request samples.",
+  },
+  {
+    title: "Range",
+    text: "Thermal bond non-woven, fusible interlining, woven interlining, coated fabric, and geo-textile, for apparel interlining, filtration, automotive, and home textiles.",
   },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero */}
       <section className="relative overflow-hidden bg-ink-900">
         <Image
           src="/images/hero-fabric-rolls.webp"
@@ -63,11 +129,12 @@ export default function HomePage() {
             <span className="text-copper-600">engineered to be felt.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-            Krisons Marketing manufactures thermal bond non-woven interlining
-            and coated fabrics for apparel, industrial, automotive and
-            home-textile applications — three decades of expertise from South
-            India&apos;s textile heartland, with a supply chain built for
-            punctual delivery across borders.
+            Krisons Marketing has manufactured since {company.established}.
+            Goods are made at our manufacturing plant in Erode, at 2 million
+            meters a month. The head office is in Chennai and the branch is in
+            Karur. We work with buyers who value a clear account of how the
+            goods are made. US and international buyers are welcome to request
+            samples.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -77,27 +144,34 @@ export default function HomePage() {
               Explore products
             </Link>
             <Link
-              href="/contact#enquiry"
+              href="/contact#samples"
               className="rounded-md border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Send an enquiry
+              Request a sample or quote
             </Link>
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-8 border-t border-white/10 pt-10 sm:grid-cols-4">
             <StatBadge dark value="1992" label="Established" />
-            <StatBadge dark value="2M m" label="Per month capacity" />
-            <StatBadge dark value="23–80" label="GSM range" />
-            <StatBadge dark value="200 cm" label="Max width" />
+            <StatBadge dark value="2M" label="Meters per month" />
+            <StatBadge
+              dark
+              value={`${THERMAL_BOND_GSM_MIN}–${THERMAL_BOND_GSM_MAX}`}
+              label={`GSM (${gsmToOzPerSqYd(THERMAL_BOND_GSM_MIN).toFixed(2)}–${gsmToOzPerSqYd(THERMAL_BOND_GSM_MAX).toFixed(2)} oz/yd²)`}
+            />
+            <StatBadge
+              dark
+              value={`${THERMAL_BOND_WIDTH_MAX_CM} cm`}
+              label={`${cmToInches(THERMAL_BOND_WIDTH_MAX_CM).toFixed(2)} in max width`}
+            />
           </div>
         </div>
       </section>
 
-      {/* Pillars */}
       <Section
         eyebrow="Our philosophy"
         title="Built on three pillars"
-        intro="A trusted partner for businesses requiring high-performance non-woven and industrial fabrics."
+        intro="Manufacturing since 1992, an in-house laboratory, and a direct way to request samples."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {pillars.map((p) => (
@@ -116,13 +190,12 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Products */}
       <Section
         eyebrow="What we make"
         title="Product range"
         className="bg-paper-dark"
       >
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {productHighlights.map((p) => (
             <Link
               key={p.name}
@@ -136,41 +209,28 @@ export default function HomePage() {
                 {p.description}
               </p>
               <span className="mt-4 inline-block text-sm font-semibold text-copper-600">
-                View specifications →
+                {p.link} →
               </span>
             </Link>
           ))}
         </div>
       </Section>
 
-      {/* Export readiness */}
       <section className="dot-grid bg-ink-900 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-copper-100">
-            Global sourcing
+            Buyers
           </p>
           <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Built for import/export orders
+            Request samples
           </h2>
+          <p className="mt-4 max-w-3xl text-white/70">
+            We work with buyers who value manufacturing since 1992, our
+            manufacturing plant in Erode, and 2 million meters a month. US and
+            international buyers are welcome to request samples.
+          </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              {
-                title: "Volume capacity",
-                text: "2,000,000 metres a month from a modern factory commissioned in 2019 — scale for ongoing programmes, not just spot orders.",
-              },
-              {
-                title: "International-standard QA",
-                text: "Rigorous, multi-stage testing in our in-house laboratory ensures every yard meets international standards.",
-              },
-              {
-                title: "Cross-border logistics",
-                text: "A streamlined supply chain designed for punctual, on-time delivery across borders.",
-              },
-              {
-                title: "Raw-material security",
-                text: "A strategic sourcing network insulates your production from market volatility.",
-              },
-            ].map((item) => (
+            {buyerNotes.map((item) => (
               <div
                 key={item.title}
                 className="rounded-lg border border-white/10 bg-white/5 p-6"
@@ -181,6 +241,14 @@ export default function HomePage() {
                 <p className="mt-2 text-sm leading-relaxed text-white/70">
                   {item.text}
                 </p>
+                {item.href && (
+                  <Link
+                    href={item.href}
+                    className="mt-4 inline-block text-sm font-semibold text-copper-100 hover:text-white"
+                  >
+                    {item.link} →
+                  </Link>
+                )}
               </div>
             ))}
           </div>
@@ -192,20 +260,19 @@ export default function HomePage() {
               Download company profile (PDF, 1.3 MB)
             </a>
             <Link
-              href="/contact#enquiry"
+              href="/contact#samples"
               className="rounded-md border border-white/30 px-6 py-3 font-semibold text-white transition-colors hover:bg-white/10"
             >
-              Send an enquiry
+              Request a sample or quote
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Applications teaser */}
       <Section
         eyebrow="Where it's used"
         title="One fabric, many industries"
-        intro="Thermal bond non-woven interlining is a silent component — you rarely see it, but you feel its effect in the structure of everyday items."
+        intro={applicationsIntro}
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {applicationCategories.map((cat) => (

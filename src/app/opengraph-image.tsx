@@ -49,13 +49,21 @@ export default function OpengraphImage() {
           style={{
             display: "flex",
             marginTop: 28,
-            fontSize: 34,
+            fontSize: 32,
             color: "rgba(255,255,255,0.75)",
-            maxWidth: 900,
           }}
         >
-          Thermal bond non-woven interlining & coated fabrics — 2 million
-          metres a month, delivered on time across borders.
+          From our manufacturing plant in Erode
+        </div>
+        <div
+          style={{
+            display: "flex",
+            marginTop: 8,
+            fontSize: 32,
+            color: "rgba(255,255,255,0.75)",
+          }}
+        >
+          2 million meters a month · Request samples
         </div>
       </div>
     ),

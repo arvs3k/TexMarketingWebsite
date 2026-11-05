@@ -9,15 +9,18 @@ import {
   microdotDiagrams,
   microdotLegend,
   microdotShirtDiagram,
+  SPECS_ON_REQUEST,
+  specOnRequestProducts,
   thermalBondSpecs,
 } from "@/lib/data/products";
 import { buildMetadata } from "@/lib/metadata";
 import { jsonLdString, productsJsonLd } from "@/lib/jsonld";
+import { formatGsmValue } from "@/lib/units";
 
 export const metadata = buildMetadata({
   title: "Products — Non-Woven Interlining Manufacturer, India",
   description:
-    "Thermal bond non-woven fabric (23–80 GSM, up to 200 cm) and microdot fusible interlining in 13 articles with polyester/polyamide paste dot and double dot coatings. Manufactured in India.",
+    "Thermal bond non-woven and fusible interlining with published GSM and widths, plus woven interlining, coated fabric, and geo-textile with specs on request. Made at our manufacturing plant in Erode.",
   path: "/products",
 });
 
@@ -30,15 +33,15 @@ export default function ProductsPage() {
       />
       <PageHeader
         eyebrow="Products"
-        title="Non-woven & coated fabrics"
-        intro="Manufactured on modern machinery in South India's textile heartland, with in-house testing — from lightweight interlinings to industrial geo-textiles."
+        title="Non-woven, interlining, and coated fabrics"
+        intro="Goods are made at our manufacturing plant in Erode. Published metric specs are shown with US customary equivalents. Woven interlining, coated fabric, and geo-textile are listed with specs on request."
       />
 
       <Section
         id="thermal-bond"
         eyebrow="Core product"
         title="Thermal Bond Non-Woven Fabric"
-        intro="A breathable, water-permeable polyester web available in a wide range of weights, widths and colours."
+        intro="Recycled or virgin polyester. Water permeable and breathable. Inches and oz/yd² are conversions of the centimeter and GSM figures, rounded half up to two decimal places."
       >
         <div className="grid items-start gap-8 lg:grid-cols-5">
           <div className="lg:col-span-3">
@@ -73,24 +76,24 @@ export default function ProductsPage() {
         id="microdot"
         eyebrow="Fusible range"
         title="Microdot Fusible Interlining"
-        intro="Thirteen articles spanning 23–80 GSM. Used across ladies' and children's garments, blazers, pocket mouths, belt bands, belt loops and quilt wadding support."
+        intro="Thirteen articles. Used across ladies' and children's garments, blazers, pocket mouths, belt bands, belt loops, and quilt batting support."
         className="bg-paper-dark"
       >
         <SpecTable
           caption="Microdot fusible interlining article table"
           headers={[
             "Article",
-            "GSM",
-            "Width (cm)",
-            "Colour",
-            "Coating Quality",
+            "Weight",
+            "Width",
+            "Color",
+            "Coating quality",
             "Coating",
           ]}
           rows={microdotArticles.map((a) => [
             a.article,
-            a.gsm,
+            formatGsmValue(a.gsm),
             a.widths,
-            a.colours,
+            a.colors,
             a.coatingQuality,
             a.coating,
           ])}
@@ -128,7 +131,7 @@ export default function ProductsPage() {
           />
           <figcaption className="mt-2 text-sm text-ink-500">
             Shirt construction — placket, collar stand interlining, cuff, main
-            interlining, and seam/armhole joint parts.
+            interlining, and seam, armhole, and joint parts.
           </figcaption>
         </figure>
         <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -156,10 +159,41 @@ export default function ProductsPage() {
       </Section>
 
       <Section
+        id="also-manufactured"
+        eyebrow="Also manufactured"
+        title="Woven interlining, coated fabric, and geo-textile"
+        intro="Descriptions only. No weight, width, or construction number is published for these three. Each spec field says Specs on request."
+      >
+        <div className="space-y-12">
+          {specOnRequestProducts.map((product) => (
+            <article key={product.id} id={product.id} className="scroll-mt-24">
+              <h3 className="font-display text-2xl font-bold text-ink-900">
+                {product.name}
+              </h3>
+              <p className="mt-3 max-w-3xl leading-relaxed text-ink-700">
+                {product.description}
+              </p>
+              <div className="mt-6">
+                <SpecTable
+                  caption={`${product.name} specifications`}
+                  headers={["Specification", "Detail"]}
+                  rows={product.specFields.map((field) => [
+                    field,
+                    SPECS_ON_REQUEST,
+                  ])}
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+      </Section>
+
+      <Section
         id="coatings"
-        eyebrow="Coating technologies"
-        title="Four coating systems"
-        intro="Our coating line supports microdot, paste dot, double dot and scatter coating in polyester and polyamide."
+        eyebrow="Coating names"
+        title="Coating types"
+        intro="Published names are microdot, paste dot, double dot, and scatter coating. Paste dot and double dot are listed in polyester and polyamide on the thermal bond spec. The sentences under each name are general descriptions, not confirmed Krisons specifications."
+        className="bg-paper-dark"
       >
         <div className="grid gap-6 sm:grid-cols-2">
           {coatingTypes.map((c) => (
@@ -176,17 +210,11 @@ export default function ProductsPage() {
             </div>
           ))}
         </div>
-        <p className="mt-8 max-w-3xl text-ink-700">
-          The factory also produces <strong>geo-textile fabric</strong> and
-          non-wovens for multiple industrial applications. If you need a
-          specification not listed here, contact us — insight-driven product
-          development is how we work.
-        </p>
       </Section>
 
       <CTABand
-        heading="Need a specific article or weight?"
-        subtext="Share your GSM, width and coating requirements and we'll respond with specifications and samples."
+        heading="Need a sample or a quote?"
+        subtext="Share the product and any GSM, width, color, or coating you already know."
       />
     </>
   );

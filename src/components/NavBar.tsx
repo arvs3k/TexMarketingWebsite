@@ -7,7 +7,9 @@ import { usePathname } from "next/navigation";
 const links = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
+  { href: "/home-textiles", label: "Home Textiles" },
   { href: "/applications", label: "Applications" },
+  { href: "/quality", label: "Quality" },
   { href: "/fusing-guide", label: "Fusing Guide" },
   { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
@@ -28,14 +30,14 @@ export default function NavBar() {
           KRISONS<span className="text-copper-600"> MARKETING</span>
         </Link>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {links.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link
                 key={href}
                 href={href}
-                className={`rounded-md px-3 py-2 text-sm font-medium transition-colors ${
+                className={`rounded-md px-2 py-2 text-sm font-medium transition-colors ${
                   active
                     ? "bg-white/10 text-white"
                     : "text-white/70 hover:bg-white/5 hover:text-white"
@@ -51,7 +53,7 @@ export default function NavBar() {
           type="button"
           aria-expanded={open}
           aria-label="Toggle navigation menu"
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           <span
@@ -65,7 +67,7 @@ export default function NavBar() {
       </div>
 
       {open && (
-        <div className="border-t border-white/10 md:hidden">
+        <div className="border-t border-white/10 lg:hidden">
           {links.map(({ href, label }) => (
             <Link
               key={href}

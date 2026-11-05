@@ -1,6 +1,19 @@
 import { company, contacts } from "@/lib/data/company";
 import { faqItems } from "@/lib/data/faq";
+import {
+  FUSIBLE_WIDTHS_CM,
+  SPECS_ON_REQUEST,
+  THERMAL_BOND_GSM_MAX,
+  THERMAL_BOND_GSM_MIN,
+  THERMAL_BOND_WIDTH_MAX_CM,
+  THERMAL_BOND_WIDTH_MIN_CM,
+} from "@/lib/data/products";
 import { siteUrl } from "@/lib/metadata";
+import {
+  formatCmRange,
+  formatGsmRange,
+  formatWidthChoices,
+} from "@/lib/units";
 
 const postalAddresses = [
   {
@@ -40,7 +53,7 @@ export const organizationJsonLd = {
   foundingDate: "1992",
   founder: { "@type": "Person", name: "K. Chandrasekaran" },
   description:
-    "Manufacturer of thermal bond non-woven interlining, microdot fusible interlining, coated fabrics and geo-textiles in Tamil Nadu, India.",
+    "Manufacturer of thermal bond non-woven, fusible interlining, woven interlining, coated fabric, geo-textile, and finished home textiles. Manufacturing since 1992 at our manufacturing plant in Erode, 2 million meters a month. US and international buyers are welcome to request samples.",
   address: postalAddresses,
   contactPoint: contacts.map((c) => ({
     "@type": "ContactPoint",
@@ -59,8 +72,7 @@ export const productsJsonLd = {
       "@type": "Product",
       position: 1,
       name: "Thermal Bond Non-Woven Fabric",
-      description:
-        "Recycled or virgin polyester non-woven, 23–80 GSM, 100–200 cm width. Water permeable and breathable. White, Off White, Optical White, Charcoal and Black.",
+      description: `Recycled or virgin polyester non-woven, ${formatGsmRange(THERMAL_BOND_GSM_MIN, THERMAL_BOND_GSM_MAX)}, ${formatCmRange(THERMAL_BOND_WIDTH_MIN_CM, THERMAL_BOND_WIDTH_MAX_CM)}. Water permeable and breathable. White, Off White, Optical White, Charcoal, and Black.`,
       brand: { "@type": "Brand", name: company.name },
       url: `${siteUrl}/products#thermal-bond`,
     },
@@ -68,19 +80,33 @@ export const productsJsonLd = {
       "@type": "Product",
       position: 2,
       name: "Microdot Fusible Interlining",
-      description:
-        "Fusible interlining in 13 articles from 23 to 80 GSM with polyester or polyamide paste dot and double dot coating.",
+      description: `Fusible interlining in 13 articles, ${formatGsmRange(THERMAL_BOND_GSM_MIN, THERMAL_BOND_GSM_MAX)}, widths ${formatWidthChoices(FUSIBLE_WIDTHS_CM)}, with polyester or polyamide paste dot and double dot coating.`,
       brand: { "@type": "Brand", name: company.name },
       url: `${siteUrl}/products#microdot`,
     },
     {
       "@type": "Product",
       position: 3,
-      name: "Geo-Textile Fabric",
-      description:
-        "Geo-textile and industrial-application non-woven fabrics manufactured in Erode, India.",
+      name: "Woven Interlining",
+      description: `Woven interlining for apparel, made at our manufacturing plant in Erode. ${SPECS_ON_REQUEST}.`,
       brand: { "@type": "Brand", name: company.name },
-      url: `${siteUrl}/products#coatings`,
+      url: `${siteUrl}/products#woven-interlining`,
+    },
+    {
+      "@type": "Product",
+      position: 4,
+      name: "Coated Fabric",
+      description: `Coated fabric made at our manufacturing plant in Erode. ${SPECS_ON_REQUEST}.`,
+      brand: { "@type": "Brand", name: company.name },
+      url: `${siteUrl}/products#coated-fabric`,
+    },
+    {
+      "@type": "Product",
+      position: 5,
+      name: "Geo-textile",
+      description: `Geo-textile made at our manufacturing plant in Erode. ${SPECS_ON_REQUEST}.`,
+      brand: { "@type": "Brand", name: company.name },
+      url: `${siteUrl}/products#geo-textile`,
     },
   ],
 };

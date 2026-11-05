@@ -12,7 +12,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Applications",
   description:
-    "Where thermal bond non-woven interlining from our Indian factory is used: apparel manufacturing, technical and industrial filtration, automotive interiors, and home textiles.",
+    "Where fabric from our manufacturing plant in Erode is used: apparel interlining, filtration, automotive, and home textiles.",
   path: "/applications",
 });
 
@@ -37,7 +37,7 @@ export default function ApplicationsPage() {
           />
           <Image
             src="/images/fabric-roll-detail.webp"
-            alt="Rolled non-woven fabric ready for despatch"
+            alt="Rolled non-woven fabric ready for dispatch"
             width={1200}
             height={800}
             sizes="(min-width: 640px) 50vw, 100vw"
@@ -59,8 +59,8 @@ export default function ApplicationsPage() {
       </Section>
 
       <CTABand
-        heading="Have an application we haven't listed?"
-        subtext="We engineer fabric solutions around customer challenges — tell us yours."
+        heading="Have an end use we haven't listed?"
+        subtext="Tell us whether it is apparel interlining, filtration, automotive, home textiles, or something else."
       />
     </>
   );

@@ -14,7 +14,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "Fusing Guide",
   description:
-    "How to fuse thermal bond non-woven interlining: preparation checklist, industry-standard temperature, pressure and dwell-time parameters, and a step-by-step procedure.",
+    "Fusing notes for thermal bond non-woven interlining: preparation, temperature, pressure, and dwell. These settings are not confirmed Krisons figures. Goods are made at our manufacturing plant in Erode.",
   path: "/fusing-guide",
 });
 
@@ -93,8 +93,8 @@ export default function FusingGuidePage() {
       </Section>
 
       <CTABand
-        heading="Questions about fusing our interlinings?"
-        subtext="Our team can advise on parameters for your specific fabric and equipment."
+        heading="Need settings for a specific article?"
+        subtext="The ranges on this page are not confirmed Krisons settings. Ask us to confirm them for your fabric."
       />
     </>
   );

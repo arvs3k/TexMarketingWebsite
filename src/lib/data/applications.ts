@@ -10,8 +10,35 @@ export interface ApplicationCategory {
   useCases: UseCase[];
 }
 
+/**
+ * VERIFY: For verification by K. Chandrasekaran
+ *
+ * Confirmed end uses are apparel interlining, filtration, automotive, and
+ * home textiles. The statements below go further (placement, construction, or
+ * performance) and are not approved specifications. Confirm or replace each
+ * one. Do not add test results or standards.
+ *
+ * - Apparel intro: "providing internal architecture to clothing."
+ * - Front fusing: entire front panel bonded for a smooth, structured chest.
+ * - Small part reinforcement: collars, cuffs, pocket flaps, and waistbands "stay crisp after multiple washes."
+ * - Stay tapes: narrow strips on bias cuts (necklines, armholes) "to prevent stretching during sewing."
+ * - Blouse & shirt plackets: "stiffness buttonholes need so they don't tear or sag."
+ * - Technical intro: "Outside apparel, these fabrics are used for filtration and barrier properties." ("barrier" is not a confirmed use.)
+ * - Filtration media: "thermal bonding creates a consistent pore size."
+ * - Protective clothing: disposable lab coats, coveralls, and shoe covers for cleanrooms.
+ * - Cable wrapping: "heat resistance and insulation."
+ * - Automotive intro: "Used in vehicle interiors for light weight and sound absorption."
+ * - Headliners: "Backing for the fabric on the ceiling of cars."
+ * - Trunk liners: "durable, scuff-resistant surface."
+ * - Seat construction: stabilizer between foam and upholstery that "keeps leather and fabric from wrinkling."
+ * - Embroidery stabilizers: "tear-away versions are often thermal-bonded non-wovens."
+ * - Curtain headers: inserted to "support heavy grommets or hooks."
+ * - Quilt batting: "Low-loft thermal bond webs provide warmth without the bulk of traditional cotton batting."
+ * - Bedding: structural layer in mattress covers and pillow protectors.
+ */
+
 export const applicationsIntro =
-  "Thermal bond non-woven interlining is a silent component — you rarely see it, but you feel its effect in the structure of everyday items.";
+  "Thermal bond non-woven interlining is a hidden component. You rarely see it, but it changes the structure of the item it is used in.";
 
 export const applicationCategories: ApplicationCategory[] = [
   {
@@ -28,7 +55,7 @@ export const applicationCategories: ApplicationCategory[] = [
       {
         name: "Small part reinforcement",
         description:
-          "Applied to collars, cuffs, pocket flaps and waistbands so they stay crisp after multiple washes.",
+          "Applied to collars, cuffs, pocket flaps, and waistbands so they stay crisp after multiple washes.",
       },
       {
         name: "Stay tapes",
@@ -46,17 +73,17 @@ export const applicationCategories: ApplicationCategory[] = [
     slug: "industrial",
     title: "Technical & Industrial",
     intro:
-      "Outside of fashion, these fabrics are used for their filtration and barrier properties.",
+      "Outside apparel, these fabrics are used for filtration and barrier properties.",
     useCases: [
       {
         name: "Filtration media",
         description:
-          "Air-conditioning filters, vacuum cleaner bags and liquid filtration — thermal bonding creates a consistent pore size.",
+          "Air-conditioning filters, vacuum cleaner bags, and liquid filtration — thermal bonding creates a consistent pore size.",
       },
       {
         name: "Protective clothing",
         description:
-          "Disposable lab coats, coveralls and shoe covers for cleanroom environments.",
+          "Disposable lab coats, coveralls, and shoe covers for cleanroom environments.",
       },
       {
         name: "Cable wrapping",
@@ -68,8 +95,7 @@ export const applicationCategories: ApplicationCategory[] = [
   {
     slug: "automotive",
     title: "Automotive",
-    intro:
-      "Prized in vehicle interiors for being lightweight and sound-absorbent.",
+    intro: "Used in vehicle interiors for light weight and sound absorption.",
     useCases: [
       {
         name: "Headliners",
@@ -83,18 +109,17 @@ export const applicationCategories: ApplicationCategory[] = [
       {
         name: "Seat construction",
         description:
-          "A stabiliser between foam and outer upholstery that keeps leather and fabric from wrinkling.",
+          "A stabilizer between foam and outer upholstery that keeps leather and fabric from wrinkling.",
       },
     ],
   },
   {
     slug: "home-textiles",
     title: "Home Textiles & Accessories",
-    intro:
-      "Structure and support in furnishing, bedding and craft applications.",
+    intro: "Structure and support in furnishing, bedding, and craft applications.",
     useCases: [
       {
-        name: "Embroidery stabilisers",
+        name: "Embroidery stabilizers",
         description:
           "Applied to the back of fabric before stitching complex designs; tear-away versions are often thermal-bonded non-wovens.",
       },
@@ -111,7 +136,7 @@ export const applicationCategories: ApplicationCategory[] = [
       {
         name: "Bedding",
         description:
-          "A cost-effective structural layer in mattress covers and pillow protectors.",
+          "A structural layer in mattress covers and pillow protectors.",
       },
     ],
   },
