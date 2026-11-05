@@ -36,9 +36,9 @@ export const pillars = [
       "Fabric can be checked in the in-house laboratory at our manufacturing plant in Erode. Named test methods and reports are published only after they are confirmed.",
   },
   {
-    title: "Starting to export",
+    title: "Buyers",
     description:
-      "We currently sell only in India and are starting to export, with the United States as the first market. Inquiries from US buyers are welcome.",
+      "We work with buyers who value manufacturing since 1992, our manufacturing plant in Erode, and a clear account of how the goods are made. US and international buyers are welcome to request samples.",
   },
   {
     title: "Samples and quotes",
@@ -87,7 +87,7 @@ export const timeline: TimelineItem[] = [
     year: "Today",
     title: "2 million meters a month",
     description:
-      "Selling in India, and starting to export, with the United States as the first market. Uses include apparel interlining, filtration, automotive, and home textiles.",
+      "Apparel interlining, filtration, automotive, and home textiles, made at our manufacturing plant in Erode. US and international buyers are welcome to request samples.",
   },
 ];
 
@@ -113,13 +113,13 @@ export const companyFacts: CompanyFact[] = [
   {
     label: "Products",
     value:
-      "Thermal bond non-woven, fusible interlining, woven interlining, coated fabric, and geo-textile",
+      "Thermal bond non-woven, fusible interlining, woven interlining, coated fabric, geo-textile, and finished home textiles",
   },
   { label: "Primary market", value: "Bangalore, Chennai, Tirupur, Karur (India)" },
   {
-    label: "Export",
+    label: "Buyers",
     value:
-      "Currently selling only in India. Starting to export, with the United States as the first market.",
+      "US and international buyers are welcome to request samples.",
   },
 ];
 

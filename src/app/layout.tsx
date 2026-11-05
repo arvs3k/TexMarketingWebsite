@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description:
-    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Established 1992. 2 million meters a month. Selling in India; starting to export, with the United States as the first market.",
+    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Manufacturing since 1992. 2 million meters a month. US and international buyers are welcome to request samples.",
   twitter: {
     card: "summary_large_image",
   },

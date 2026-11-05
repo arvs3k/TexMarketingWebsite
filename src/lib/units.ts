@@ -11,6 +11,8 @@
  */
 
 const GRAMS_PER_OUNCE = 28.349523125;
+/** Avoirdupois pound, exact. */
+const GRAMS_PER_POUND = 453.59237;
 const SQUARE_METERS_PER_SQUARE_YARD = 0.9144 * 0.9144;
 
 export function gsmToOzPerSqYd(gsm: number): number {
@@ -44,4 +46,29 @@ export function formatCmValue(cm: number): string {
 export function formatWidthChoices(cms: readonly number[]): string {
   const inches = cms.map((cm) => round2(cmToInches(cm))).join(" / ");
   return `${cms.join(" / ")} cm (${inches} in)`;
+}
+
+/** Inches to centimeters. 1 in = 2.54 cm exactly. */
+export function inchesToCm(inches: number): number {
+  return inches * 2.54;
+}
+
+export function formatInchSize(
+  widthIn: number,
+  lengthIn: number,
+  feet?: { width: number; length: number },
+): string {
+  const cm = `${round2(inchesToCm(widthIn))} × ${round2(inchesToCm(lengthIn))} cm`;
+  const inches = `${widthIn} × ${lengthIn} in`;
+  if (feet) {
+    return `${inches} (${feet.width} × ${feet.length} ft; ${cm})`;
+  }
+  return `${inches} (${cm})`;
+}
+
+/** Grams with ounces and pounds. 1 oz = 28.349523125 g; 1 lb = 453.59237 g. */
+export function formatGrams(grams: number): string {
+  const ounces = grams / GRAMS_PER_OUNCE;
+  const pounds = grams / GRAMS_PER_POUND;
+  return `${grams} g (${round2(ounces)} oz / ${round2(pounds)} lb)`;
 }

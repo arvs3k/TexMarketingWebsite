@@ -113,6 +113,12 @@ export default function EnquiryForm() {
             <option>Coated fabric</option>
             <option>Geo-textile</option>
             <option>Scatter coating</option>
+            <option>Home textiles — hard pillow</option>
+            <option>Home textiles — soft microfiber pillow</option>
+            <option>Home textiles — cushion</option>
+            <option>Home textiles — bed runner</option>
+            <option>Home textiles — mattress protector</option>
+            <option>Home textiles — mattress topper</option>
             <option>Other / not sure</option>
           </select>
         </div>

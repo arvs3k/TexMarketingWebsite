@@ -63,7 +63,7 @@ export default function OpengraphImage() {
             color: "rgba(255,255,255,0.75)",
           }}
         >
-          2 million meters a month · US inquiries welcome
+          2 million meters a month · Request samples
         </div>
       </div>
     ),

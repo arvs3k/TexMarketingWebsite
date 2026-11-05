@@ -4,6 +4,7 @@ import { company } from "@/lib/data/company";
 const footerLinks = [
   { href: "/about", label: "About" },
   { href: "/products", label: "Products" },
+  { href: "/home-textiles", label: "Home Textiles" },
   { href: "/applications", label: "Applications" },
   { href: "/quality", label: "Quality" },
   { href: "/fusing-guide", label: "Fusing Guide" },

@@ -10,7 +10,7 @@ import { faqJsonLd, jsonLdString } from "@/lib/jsonld";
 export const metadata = buildMetadata({
   title: "Contact — Samples & Inquiries",
   description:
-    "Request a sample or a quote from Krisons Marketing. We currently sell only in India and are starting to export, with the United States as the first market. No prices or delivery terms are published.",
+    "Request a sample or a quote from Krisons Marketing. Manufacturing since 1992 at our manufacturing plant in Erode. US and international buyers are welcome. No prices or delivery terms are published.",
   path: "/contact",
 });
 
@@ -43,7 +43,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Contact"
         title="Talk to us"
-        intro="We currently sell only in India and are starting to export, with the United States as the first market. Use Samples & inquiries to request a sample or a quote."
+        intro="Manufacturing since 1992, with goods made at our manufacturing plant in Erode. US and international buyers are welcome to request samples or a quote."
       />
 
       <Section

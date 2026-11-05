@@ -16,7 +16,7 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   title: "About Us — Non-Woven Fabric Manufacturer Since 1992",
   description:
-    "Krisons Marketing, established 1992. Head office in Chennai, branch in Karur, goods made at our manufacturing plant in Erode. 2 million meters a month. Selling in India and starting to export, with the United States as the first market.",
+    "Krisons Marketing, manufacturing since 1992. Head office in Chennai, branch in Karur, goods made at our manufacturing plant in Erode. 2 million meters a month. US and international buyers are welcome to request samples.",
   path: "/about",
 });
 
@@ -26,7 +26,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About us"
         title="Three decades of textile work"
-        intro="Krisons Marketing is a proprietorship established in 1992. The head office is in Chennai and the branch is in Karur. Goods are made at our manufacturing plant in Erode. We sell in India and are starting to export, with the United States as the first market."
+        intro="Krisons Marketing is a proprietorship, manufacturing since 1992. The head office is in Chennai and the branch is in Karur. Goods are made at our manufacturing plant in Erode, at 2 million meters a month. We work with buyers who value a clear account of how the goods are made. US and international buyers are welcome to request samples."
       />
 
       <Section eyebrow="Our journey" title="From hardware to textiles">
@@ -78,9 +78,9 @@ export default function AboutPage() {
       >
         <p className="max-w-3xl text-lg leading-relaxed text-ink-700">
           The range is thermal bond non-woven, fusible interlining, woven
-          interlining, coated fabric, and geo-textile. Uses include apparel
-          interlining, filtration, automotive, and home textiles. Goods are
-          made at our manufacturing plant in Erode.
+          interlining, coated fabric, geo-textile, and finished home textiles.
+          Uses include apparel interlining, filtration, automotive, and home
+          textiles. Goods are made at our manufacturing plant in Erode.
         </p>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {[...pillars, ...whyPartners].map((item) => (

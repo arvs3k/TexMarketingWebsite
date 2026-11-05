@@ -53,7 +53,7 @@ export const organizationJsonLd = {
   foundingDate: "1992",
   founder: { "@type": "Person", name: "K. Chandrasekaran" },
   description:
-    "Manufacturer of thermal bond non-woven, fusible interlining, woven interlining, coated fabric, and geo-textile. Goods are made at our manufacturing plant in Erode. Currently selling only in India and starting to export, with the United States as the first market.",
+    "Manufacturer of thermal bond non-woven, fusible interlining, woven interlining, coated fabric, geo-textile, and finished home textiles. Manufacturing since 1992 at our manufacturing plant in Erode, 2 million meters a month. US and international buyers are welcome to request samples.",
   address: postalAddresses,
   contactPoint: contacts.map((c) => ({
     "@type": "ContactPoint",

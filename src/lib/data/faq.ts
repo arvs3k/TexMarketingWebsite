@@ -22,7 +22,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "What products does Krisons Marketing manufacture?",
     answer:
-      "Thermal bond non-woven, fusible interlining (microdot, polyester and polyamide paste dot, and double dot), woven interlining, coated fabric, and geo-textile. Uses include apparel interlining, filtration, automotive, and home textiles. Goods are made at our manufacturing plant in Erode.",
+      "Thermal bond non-woven, fusible interlining (microdot, polyester and polyamide paste dot, and double dot), woven interlining, coated fabric, and geo-textile. Finished home textiles are a hard pillow, a soft microfiber pillow, a cushion, brown and navy bed runners, a quilted mattress protector, and a mattress topper. Uses of the fabrics include apparel interlining, filtration, automotive, and home textiles. Goods are made at our manufacturing plant in Erode.",
   },
   {
     question: "What GSM range, widths, and colors are available?",
@@ -36,7 +36,7 @@ export const faqItems: FaqItem[] = [
   {
     question: "Do you supply international buyers?",
     answer:
-      "Not yet as an established export program. We currently sell only in India and are starting to export, with the United States as the first market. We welcome inquiries from US buyers. Tell us the product, the specification you need, and the destination.",
+      "Yes. We welcome inquiries from US and international buyers and can send samples. Tell us the product, the specification you need, and the destination.",
   },
   {
     question: "How do I request a sample or a quote?",

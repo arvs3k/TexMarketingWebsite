@@ -35,7 +35,7 @@ export const metadata = buildMetadata({
   title:
     "Krisons Marketing — Non-Woven Interlining & Coated Fabric Manufacturer, India",
   description:
-    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Established 1992. 2 million meters a month. Selling in India; starting to export, with the United States as the first market.",
+    "Thermal bond non-woven, fusible and woven interlining, coated fabric, and geo-textile from our manufacturing plant in Erode. Manufacturing since 1992. 2 million meters a month. US and international buyers are welcome to request samples.",
   path: "/",
 });
 
@@ -73,6 +73,13 @@ const productHighlights = [
     href: "/products#geo-textile",
     link: "View product",
   },
+  {
+    name: "Home Textiles",
+    description:
+      "Finished hard and soft pillows, a cushion, brown and navy bed runners, a quilted mattress protector, and a micro polyester mattress topper. Sizes are in inches and centimeters.",
+    href: "/home-textiles",
+    link: "View the range",
+  },
 ];
 
 const buyerNotes = [
@@ -87,8 +94,8 @@ const buyerNotes = [
     link: "Quality page",
   },
   {
-    title: "United States",
-    text: "We currently sell only in India and are starting to export, with the United States as the first market. Inquiries from US buyers are welcome.",
+    title: "Samples",
+    text: "We work with buyers who value a clear account of how goods are made. US and international buyers are welcome to request samples.",
   },
   {
     title: "Range",
@@ -122,12 +129,12 @@ export default function HomePage() {
             <span className="text-copper-600">engineered to be felt.</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-            Krisons Marketing makes thermal bond non-woven, fusible
-            interlining, woven interlining, coated fabric, and geo-textile at
-            our manufacturing plant in Erode. The head office is in Chennai and
-            the branch is in Karur.             Established in {company.established}, we currently sell only in
-            India and are starting to export, with the United States as the
-            first market.
+            Krisons Marketing has manufactured since {company.established}.
+            Goods are made at our manufacturing plant in Erode, at 2 million
+            meters a month. The head office is in Chennai and the branch is in
+            Karur. We work with buyers who value a clear account of how the
+            goods are made. US and international buyers are welcome to request
+            samples.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
@@ -164,7 +171,7 @@ export default function HomePage() {
       <Section
         eyebrow="Our philosophy"
         title="Built on three pillars"
-        intro="What we can say about quality, export, and how to ask for a sample or a quote."
+        intro="Manufacturing since 1992, an in-house laboratory, and a direct way to request samples."
       >
         <div className="grid gap-6 md:grid-cols-3">
           {pillars.map((p) => (
@@ -212,14 +219,15 @@ export default function HomePage() {
       <section className="dot-grid bg-ink-900 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-copper-100">
-            For US buyers
+            Buyers
           </p>
           <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-            Selling in India, starting to export
+            Request samples
           </h2>
           <p className="mt-4 max-w-3xl text-white/70">
-            We currently sell only in India. The first export market is the
-            United States, and we welcome inquiries from US buyers.
+            We work with buyers who value manufacturing since 1992, our
+            manufacturing plant in Erode, and 2 million meters a month. US and
+            international buyers are welcome to request samples.
           </p>
           <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {buyerNotes.map((item) => (
