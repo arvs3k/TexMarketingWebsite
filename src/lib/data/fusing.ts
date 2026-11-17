@@ -1,5 +1,6 @@
 /**
  * VERIFY: For verification by K. Chandrasekaran
+ * CONTENT-TODO(verify-fusing): confirm the fusing temperature, pressure and time ranges and the handling notes below for Krisons articles.
  *
  * Approved specs do not include fusing temperature, pressure, or time.
  * None of the figures or handling statements below are confirmed Krisons
@@ -22,7 +23,10 @@
  */
 
 export const fusingIntro =
-  "Fusing thermal bond non-woven interlining depends on temperature, pressure, and time (dwell). Because non-woven interlinings are often heat-sensitive, the wrong balance can cause strike-back (glue leaking through) or strike-through (glue seeping to the face of the fabric). The temperatures, pressures, times, and handling notes on this page are not confirmed settings for goods from our manufacturing plant in Erode. Ask us to confirm them for the article and fabric you are using, and run a test fuse before production.";
+  "Fusing comes down to three settings: temperature, pressure and time. Too much and adhesive strikes through to the face of the fabric; too little and the bond fails. Use the ranges below as a starting point, then test on your own fabric and press.";
+
+export const fusingAdvice =
+  "Every shell fabric and press behaves differently. Run a test fuse on production fabric before bulk, and send us your fabric details if you would like us to suggest settings for a specific article.";
 
 export const preFusingChecklist = [
   {
@@ -50,14 +54,14 @@ export const fusingParameters = {
     ["Time", "12 – 17 seconds", "10 – 16 seconds"],
   ],
   footnote:
-    "These temperature, pressure, and time figures are not confirmed settings for Krisons goods. Run a test fuse, and ask us to confirm settings for the article you are using.",
+    "Starting ranges from our company profile. Confirm on your own fabric with a test fuse before production.",
 } as const;
 
 export const fusingSteps = [
   {
     name: "Pre-heat",
     description:
-      "Set equipment to the temperature under test. With a hand iron, use the silk/wool setting — usually no steam, because moisture can interfere with some thermal resins.",
+      "Set equipment to your test temperature. With a hand iron, use the silk/wool setting — usually no steam, because moisture can interfere with some thermal resins.",
   },
   {
     name: "Position",
@@ -72,6 +76,6 @@ export const fusingSteps = [
   {
     name: "Cool (crucial)",
     description:
-      "Let fused pieces lie completely flat for at least 20–30 minutes. The bond is described as permanent only once the resin has fully recrystallized at room temperature.",
+      "Let fused pieces lie completely flat for at least 20–30 minutes. The bond reaches full strength only once the adhesive has cooled to room temperature.",
   },
 ] as const;

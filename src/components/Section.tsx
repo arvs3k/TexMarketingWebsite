@@ -1,38 +1,54 @@
 import type { ReactNode } from "react";
 
-interface SectionProps {
-  id?: string;
-  eyebrow?: string;
-  title?: string;
-  intro?: string;
-  children: ReactNode;
-  className?: string;
-}
+type Tone = "paper" | "paper-2" | "ink";
+
+const tones: Record<Tone, string> = {
+  paper: "bg-paper",
+  "paper-2": "bg-paper-2",
+  ink: "on-ink bg-ink-900 text-white",
+};
 
 export default function Section({
   id,
+  tone = "paper",
   eyebrow,
   title,
-  intro,
+  lead,
   children,
   className = "",
-}: SectionProps) {
+  headingLevel = 2,
+  aside,
+}: {
+  id?: string;
+  tone?: Tone;
+  eyebrow?: string;
+  title?: ReactNode;
+  lead?: ReactNode;
+  children: ReactNode;
+  className?: string;
+  headingLevel?: 2 | 3;
+  /** Rendered to the right of the heading on wide screens (e.g. a link). */
+  aside?: ReactNode;
+}) {
+  const H = headingLevel === 2 ? "h2" : "h3";
+  const ink = tone === "ink";
   return (
-    <section id={id} className={`scroll-mt-24 py-16 sm:py-20 ${className}`}>
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        {(eyebrow || title || intro) && (
-          <div className="mb-10 max-w-3xl">
-            {eyebrow && (
-              <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-copper-600">
-                {eyebrow}
-              </p>
-            )}
-            {title && (
-              <h2 className="font-display text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl">
-                {title}
-              </h2>
-            )}
-            {intro && <p className="mt-4 text-lg text-ink-500">{intro}</p>}
+    <section id={id} className={`${tones[tone]} py-16 sm:py-24 ${className}`}>
+      <div className="container-x">
+        {(eyebrow || title) && (
+          <div className="mb-10 flex flex-col gap-6 sm:mb-14 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              {eyebrow && (
+                <p className={`eyebrow mb-4 ${ink ? "text-copper-400" : "text-copper-700"}`}>{eyebrow}</p>
+              )}
+              {title && <H className="text-h2 font-bold leading-[1.08] tracking-tight">{title}</H>}
+              {lead && (
+                <p className={`mt-5 max-w-2xl text-lg leading-relaxed ${ink ? "text-ink-300" : "text-ink-600"}`}>
+                  {lead}
+                </p>
+              )}
+            </div>
+            {aside && <div className="shrink-0">{aside}</div>}
           </div>
         )}
         {children}

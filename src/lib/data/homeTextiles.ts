@@ -15,6 +15,7 @@ export interface HomeTextileProduct {
 
 /**
  * VERIFY: For verification by K. Chandrasekaran
+ * CONTENT-TODO(verify-home-textile-artwork): the product graphics print claims ("100% waterproof", "anti-allergen", "machine washable", "premium quality"…) that are not confirmed. Confirm each with evidence, or supply clean product photos without printed claims (preferred).
  *
  * The approved graphics still print the phrases below. Page copy does not
  * state them as facts. Confirm each one before it is written into the text,
@@ -60,7 +61,7 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     width: 1529,
     height: 1028,
     alt: "White hard pillow. The published size is 18 by 28 inches and the published weight is 800 grams.",
-    summary: "A finished hard pillow made at our manufacturing plant in Erode.",
+    summary: "A firm pillow in your choice of three fabrics.",
     size: formatInchSize(18, 28),
     weight: formatGrams(800),
     notes: [pillowFabricChoice],
@@ -73,7 +74,7 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     height: 1024,
     alt: "White soft microfiber pillow with a contrasting edge band. The published size is 20 by 30 inches and the published weight is 1,200 grams.",
     summary:
-      "A finished soft microfiber pillow made at our manufacturing plant in Erode.",
+      "A soft microfiber pillow in your choice of three fabrics.",
     size: formatInchSize(20, 30),
     weight: formatGrams(1200),
     notes: [pillowFabricChoice],
@@ -85,7 +86,7 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     width: 1254,
     height: 1254,
     alt: "White square cushion. The published size is 16 by 16 inches and the published weight is 400 grams.",
-    summary: "A finished square cushion made at our manufacturing plant in Erode.",
+    summary: "A square cushion.",
     size: formatInchSize(16, 16),
     weight: formatGrams(400),
     notes: [],
@@ -98,10 +99,10 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     height: 1081,
     alt: "Quilted bed runner with a brown border and two matching square mats on a white bed. The runner size is 20 by 90 inches.",
     summary:
-      "A quilted bed runner with a brown border, made at our manufacturing plant in Erode. The set includes two matching square mats.",
+      "A quilted bed runner with a brown border. The set includes two matching square mats.",
     size: runnerSize,
     weight: null,
-    notes: ["Mat size is not published."],
+    notes: ["Set includes two matching square mats. Ask us for mat sizes."],
   },
   {
     id: "bed-runner-navy",
@@ -111,10 +112,10 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     height: 1081,
     alt: "Quilted bed runner with a navy border and two matching square mats on a white bed. The runner size is 20 by 90 inches.",
     summary:
-      "A quilted bed runner with a navy border, made at our manufacturing plant in Erode. The set includes two matching square mats.",
+      "A quilted bed runner with a navy border. The set includes two matching square mats.",
     size: runnerSize,
     weight: null,
-    notes: ["Mat size is not published."],
+    notes: ["Set includes two matching square mats. Ask us for mat sizes."],
   },
   {
     id: "mattress-protector",
@@ -124,7 +125,7 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     height: 1024,
     alt: "Folded white quilted mattress protector. The published size is 72 by 78 inches, or 6 by 6.5 feet.",
     summary:
-      "A quilted mattress protector made at our manufacturing plant in Erode.",
+      "A quilted mattress protector.",
     size: bedSize,
     weight: null,
     notes: [],
@@ -137,7 +138,7 @@ export const homeTextileProducts: HomeTextileProduct[] = [
     height: 1388,
     alt: "White quilted mattress topper with elastic corners on a bed. The published size is 72 by 78 inches, or 6 by 6.5 feet. The fabric is micro polyester.",
     summary:
-      "A mattress topper in micro polyester, with elastic corners, made at our manufacturing plant in Erode.",
+      "A mattress topper in micro polyester, with elastic corners.",
     size: bedSize,
     weight: null,
     notes: [],
@@ -172,7 +173,7 @@ export const fabricExplainers = [
     width: 1280,
     height: 1224,
     alt: "Reference graphic of a roll of nonwoven fusible lining. This is a fabric. Wording printed on the graphic is not a specification.",
-    text: "Nonwoven fusible lining is a fabric. It is not adhesive paper. Wording printed on the graphic is not a specification.",
+    text: "Nonwoven fusible lining is a fabric with a heat-activated adhesive, used inside the finished goods.",
     small: true,
   },
   {
@@ -182,7 +183,7 @@ export const fabricExplainers = [
     width: 1227,
     height: 1600,
     alt: "Reference graphic of a roll of polyester wadding. Wording printed on the graphic is not a specification.",
-    text: "Polyester wadding is offered in four types: polyester, siliconized, needle punched, and thermal. Other wording printed on the graphic is not a specification.",
+    text: "Polyester wadding is offered in four types: polyester, siliconized, needle punched, and thermal.",
     small: true,
   },
 ] as const;
