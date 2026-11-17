@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "content:todo": "node scripts/content-todo.mjs",
+    "content:check": "node scripts/content-todo.mjs --check"
   },
   "dependencies": {
     "next": "16.2.10",
@@ -17,6 +21,8 @@
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.2.10",
     "tailwindcss": "^4.3.2",
     "typescript": "^5"
   }

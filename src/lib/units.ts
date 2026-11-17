@@ -72,3 +72,12 @@ export function formatGrams(grams: number): string {
   const pounds = grams / GRAMS_PER_POUND;
   return `${grams} g (${round2(ounces)} oz / ${round2(pounds)} lb)`;
 }
+
+/** Bare converted numbers for tables that put each unit in its own column. */
+export function ozPerSqYd(gsm: number): string {
+  return round2(gsmToOzPerSqYd(gsm));
+}
+
+export function inches(cm: number): string {
+  return round2(cmToInches(cm));
+}

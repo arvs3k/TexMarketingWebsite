@@ -1,220 +1,144 @@
-import Image from "next/image";
-import PageHeader from "@/components/PageHeader";
+import Link from "next/link";
+import Icon from "@/components/Icon";
+import JsonLd from "@/components/JsonLd";
+import PageHero from "@/components/PageHero";
+import ProductCard from "@/components/ProductCard";
+import ProfileDownload from "@/components/ProfileDownload";
 import Section from "@/components/Section";
-import SpecTable from "@/components/SpecTable";
-import CTABand from "@/components/CTABand";
-import {
-  coatingTypes,
-  microdotArticles,
-  microdotDiagrams,
-  microdotLegend,
-  microdotShirtDiagram,
-  SPECS_ON_REQUEST,
-  specOnRequestProducts,
-  thermalBondSpecs,
-} from "@/lib/data/products";
+import { ClosingCta, ContextCta, SamplesButton } from "@/components/Cta";
+import { coatingTypes, productFamilies } from "@/lib/data/products";
+import { breadcrumbJsonLd, productListJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
-import { jsonLdString, productsJsonLd } from "@/lib/jsonld";
-import { formatGsmValue } from "@/lib/units";
+import { requestHref } from "@/lib/links";
+
+const crumbs = [{ href: "/products", label: "Products" }];
 
 export const metadata = buildMetadata({
-  title: "Products — Non-Woven Interlining Manufacturer, India",
+  title: "Products — Interlining, Non-Woven & Coated Fabric Manufacturer, India",
   description:
-    "Thermal bond non-woven and fusible interlining with published GSM and widths, plus woven interlining, coated fabric, and geo-textile with specs on request. Made at our manufacturing plant in Erode.",
+    "Six product families from one plant in Erode, India: fusible interlining, thermal bond non-woven, woven interlining, coated fabric, geo-textile and home textiles. Specs in metric and imperial.",
   path: "/products",
 });
 
 export default function ProductsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdString(productsJsonLd) }}
-      />
-      <PageHeader
+      <JsonLd data={productListJsonLd} />
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <PageHero
+        crumbs={crumbs}
         eyebrow="Products"
-        title="Non-woven, interlining, and coated fabrics"
-        intro="Goods are made at our manufacturing plant in Erode. Published metric specs are shown with US customary equivalents. Woven interlining, coated fabric, and geo-textile are listed with specs on request."
-      />
-
-      <Section
-        id="thermal-bond"
-        eyebrow="Core product"
-        title="Thermal Bond Non-Woven Fabric"
-        intro="Recycled or virgin polyester. Water permeable and breathable. Inches and oz/yd² are conversions of the centimeter and GSM figures, rounded half up to two decimal places."
+        title="Interlining, non-woven and coated fabric, from our own lines."
+        lead="Six product families made in one plant. Published specifications are given in metric and imperial; made-to-order fabrics are specified with you and sampled before anything else."
       >
-        <div className="grid items-start gap-8 lg:grid-cols-5">
-          <div className="lg:col-span-3">
-            <SpecTable
-              caption="Thermal bond non-woven fabric specifications"
-              headers={["Specification", "Detail"]}
-              rows={thermalBondSpecs.map((s) => [s.label, s.value])}
-            />
-          </div>
-          <div className="grid gap-4 lg:col-span-2">
-            <Image
-              src="/images/rolls-white.webp"
-              alt="White thermal bond non-woven fabric rolls"
-              width={1600}
-              height={1067}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="rounded-lg border border-ink-900/10 shadow-sm"
-            />
-            <Image
-              src="/images/roll-dark-closeup.webp"
-              alt="Close-up of a charcoal non-woven fabric roll edge"
-              width={1600}
-              height={1067}
-              sizes="(min-width: 1024px) 40vw, 100vw"
-              className="rounded-lg border border-ink-900/10 shadow-sm"
-            />
-          </div>
-        </div>
+        <SamplesButton location="products_hero" />
+        <ProfileDownload location="products_hero" className="btn btn-ghost-light" />
+      </PageHero>
+
+      <Section>
+        <ul className="reveal-row grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {productFamilies.map((p, i) => (
+            <li key={p.slug}>
+              <ProductCard product={p} index={i} headingLevel={2} />
+            </li>
+          ))}
+        </ul>
       </Section>
 
       <Section
-        id="microdot"
-        eyebrow="Fusible range"
-        title="Microdot Fusible Interlining"
-        intro="Thirteen articles. Used across ladies' and children's garments, blazers, pocket mouths, belt bands, belt loops, and quilt batting support."
-        className="bg-paper-dark"
+        tone="paper-2"
+        eyebrow="At a glance"
+        title="Compare the range"
+        lead="Fixed-specification products list their numbers here. The rest are made to your specification."
       >
-        <SpecTable
-          caption="Microdot fusible interlining article table"
-          headers={[
-            "Article",
-            "Weight",
-            "Width",
-            "Color",
-            "Coating quality",
-            "Coating",
-          ]}
-          rows={microdotArticles.map((a) => [
-            a.article,
-            formatGsmValue(a.gsm),
-            a.widths,
-            a.colors,
-            a.coatingQuality,
-            a.coating,
-          ])}
-          footnote={microdotLegend}
-        />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          <Image
-            src="/images/microdot-blue.webp"
-            alt="Microdot fusible interlining fused to blue garment fabric"
-            width={1200}
-            height={800}
-            sizes="(min-width: 640px) 50vw, 100vw"
-            className="rounded-lg border border-ink-900/10 shadow-sm"
-          />
-          <Image
-            src="/images/microdot-texture-dark.webp"
-            alt="Dot-coating pattern on dark microdot interlining"
-            width={1600}
-            height={1067}
-            sizes="(min-width: 640px) 50vw, 100vw"
-            className="rounded-lg border border-ink-900/10 object-cover shadow-sm"
-          />
-        </div>
-        <h3 className="mt-12 font-display text-xl font-bold text-ink-900">
-          Where it goes in a garment
-        </h3>
-        <figure className="mt-4 rounded-lg border border-ink-900/10 bg-white p-4 shadow-sm sm:p-6">
-          <Image
-            src={microdotShirtDiagram.src}
-            alt={microdotShirtDiagram.alt}
-            width={microdotShirtDiagram.width}
-            height={microdotShirtDiagram.height}
-            sizes="(min-width: 1152px) 1104px, 100vw"
-            className="w-full"
-          />
-          <figcaption className="mt-2 text-sm text-ink-500">
-            Shirt construction — placket, collar stand interlining, cuff, main
-            interlining, and seam, armhole, and joint parts.
-          </figcaption>
-        </figure>
-        <div className="mt-4 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-          {microdotDiagrams.map((d) => (
-            <figure
-              key={d.src}
-              className="rounded-lg border border-ink-900/10 bg-white p-3 shadow-sm"
-            >
-              <div className="flex aspect-[3/4] items-center justify-center">
-                <Image
-                  src={d.src}
-                  alt={d.alt}
-                  width={d.width}
-                  height={d.height}
-                  sizes="(min-width: 1024px) 16vw, (min-width: 640px) 33vw, 50vw"
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
-              <figcaption className="mt-2 text-center text-sm font-medium text-ink-700">
-                {d.caption}
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        id="also-manufactured"
-        eyebrow="Also manufactured"
-        title="Woven interlining, coated fabric, and geo-textile"
-        intro="Descriptions only. No weight, width, or construction number is published for these three. Each spec field says Specs on request."
-      >
-        <div className="space-y-12">
-          {specOnRequestProducts.map((product) => (
-            <article key={product.id} id={product.id} className="scroll-mt-24">
-              <h3 className="font-display text-2xl font-bold text-ink-900">
-                {product.name}
-              </h3>
-              <p className="mt-3 max-w-3xl leading-relaxed text-ink-700">
-                {product.description}
-              </p>
-              <div className="mt-6">
-                <SpecTable
-                  caption={`${product.name} specifications`}
-                  headers={["Specification", "Detail"]}
-                  rows={product.specFields.map((field) => [
-                    field,
-                    SPECS_ON_REQUEST,
-                  ])}
-                />
-              </div>
-            </article>
-          ))}
+        <div className="relative overflow-x-auto rounded-(--radius-card) border border-line bg-card">
+          <table className="spec-table min-w-[44rem]">
+            <caption className="sr-only">Comparison of Krisons product families</caption>
+            <thead>
+              <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Width</th>
+                <th scope="col">Colors</th>
+                <th scope="col">
+                  <span className="sr-only">Actions</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {productFamilies.map((p) => {
+                const spec = (label: string) => p.keySpecs.find((s) => s.label === label)?.value;
+                const fixed = p.keySpecs.length > 0;
+                return (
+                  <tr key={p.slug}>
+                    <th scope="row" className="font-semibold">
+                      <Link href={`/products/${p.slug}`} className="underline-offset-4 hover:underline">
+                        {p.name}
+                      </Link>
+                    </th>
+                    {fixed ? (
+                      <>
+                        <td className="num">{spec("Weight")}</td>
+                        <td className="num">{spec("Width")}</td>
+                        <td>{spec("Colors")}</td>
+                      </>
+                    ) : (
+                      <td colSpan={3} className="text-ink-600">
+                        {p.slug === "home-textiles" ? "Finished goods — see sizes on the product page" : "Made to your specification"}
+                      </td>
+                    )}
+                    <td className="r whitespace-nowrap">
+                      <Link href={requestHref({ product: p.slug })} className="link inline-flex items-center gap-1 text-sm">
+                        Request sample
+                        <Icon name="arrow" className="h-4 w-4" />
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </Section>
 
       <Section
         id="coatings"
-        eyebrow="Coating names"
-        title="Coating types"
-        intro="Published names are microdot, paste dot, double dot, and scatter coating. Paste dot and double dot are listed in polyester and polyamide on the thermal bond spec. The sentences under each name are general descriptions, not confirmed Krisons specifications."
-        className="bg-paper-dark"
+        eyebrow="Coating types"
+        title="Four ways to apply the adhesive"
+        lead="Which coating suits your fabric depends on its weight, handle and how the garment will be cared for. Tell us the shell fabric and we will suggest where to start."
       >
-        <div className="grid gap-6 sm:grid-cols-2">
-          {coatingTypes.map((c) => (
-            <div
-              key={c.name}
-              className="rounded-lg border border-ink-900/10 bg-white p-6 shadow-sm"
-            >
-              <h3 className="font-display text-lg font-bold text-ink-900">
-                {c.name}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                {c.description}
-              </p>
-            </div>
+        <ul className="grid gap-x-10 sm:grid-cols-2">
+          {coatingTypes.map((c, i) => (
+            <li key={c.name} className="flex gap-5 border-t border-ink-900 py-6">
+              <span className="num pt-1 text-sm text-copper-700">{String(i + 1).padStart(2, "0")}</span>
+              <div>
+                <h3 className="font-display text-xl font-bold">{c.name}</h3>
+                <p className="mt-2 leading-relaxed text-ink-600">{c.description}</p>
+              </div>
+            </li>
           ))}
+        </ul>
+        <p className="mt-6 text-ink-600">
+          Fusing fabric for the first time?{" "}
+          <Link href="/fusing-guide" className="link">
+            Read the fusing guide
+          </Link>
+          .
+        </p>
+        <div className="mt-12">
+          <ContextCta
+            location="products_index_end"
+            title="Not sure which product fits?"
+            text="Send us the end use and the fabric you are working with. We will suggest articles and sample them."
+            params={{ product: "not-sure" }}
+          />
         </div>
       </Section>
 
-      <CTABand
-        heading="Need a sample or a quote?"
-        subtext="Share the product and any GSM, width, color, or coating you already know."
+      <ClosingCta
+        location="products_final"
+        title="Feel it before you order it."
+        lead="Tell us the product, weight and width. We will send samples."
       />
     </>
   );

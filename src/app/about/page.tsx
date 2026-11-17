@@ -1,125 +1,116 @@
-import Image from "next/image";
-import Link from "next/link";
-import PageHeader from "@/components/PageHeader";
+import JsonLd from "@/components/JsonLd";
+import PageHero from "@/components/PageHero";
+import People from "@/components/People";
+import Photo, { WantedPhoto } from "@/components/Photo";
+import ProfileDownload from "@/components/ProfileDownload";
 import Section from "@/components/Section";
-import Timeline from "@/components/Timeline";
-import SpecTable from "@/components/SpecTable";
-import CTABand from "@/components/CTABand";
-import {
-  companyFacts,
-  pillars,
-  timeline,
-  whyPartners,
-} from "@/lib/data/company";
+import { ClosingCta, SamplesButton } from "@/components/Cta";
+import { companyFacts, story, timeline } from "@/lib/data/company";
+import { wantedMedia } from "@/lib/data/media";
+import { breadcrumbJsonLd } from "@/lib/jsonld";
 import { buildMetadata } from "@/lib/metadata";
 
+const crumbs = [{ href: "/about", label: "About" }];
+
 export const metadata = buildMetadata({
-  title: "About Us — Non-Woven Fabric Manufacturer Since 1992",
+  title: "About — A Family Textile Manufacturer Since 1992",
   description:
-    "Krisons Marketing, manufacturing since 1992. Head office in Chennai, branch in Karur, goods made at our manufacturing plant in Erode. 2 million meters a month. US and international buyers are welcome to request samples.",
+    "Krisons Marketing was founded in Chennai in 1992 and has run its own interlining and non-woven plant in Erode, Tamil Nadu, since 2019. The story, the people and the company facts.",
   path: "/about",
 });
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        eyebrow="About us"
-        title="Three decades of textile work"
-        intro="Krisons Marketing is a proprietorship, manufacturing since 1992. The head office is in Chennai and the branch is in Karur. Goods are made at our manufacturing plant in Erode, at 2 million meters a month. We work with buyers who value a clear account of how the goods are made. US and international buyers are welcome to request samples."
-      />
+      <JsonLd data={breadcrumbJsonLd(crumbs)} />
+      <PageHero
+        crumbs={crumbs}
+        eyebrow="About Krisons"
+        title="Thirty years in the trade. Our own plant since 2019."
+        lead="A family-run firm from Tamil Nadu that started by selling buckles and now makes two million meters of fabric a month."
+      >
+        <SamplesButton location="about_hero" />
+        <ProfileDownload location="about_hero" className="btn btn-ghost-light" />
+      </PageHero>
 
-      <Section eyebrow="Our journey" title="From hardware to textiles">
-        <div className="grid items-start gap-10 lg:grid-cols-2">
-          <Timeline items={timeline} />
-          <div className="grid gap-4">
-            <Image
-              src="/images/factory-building.webp"
-              alt="Exterior of our manufacturing plant in Erode, commissioned 2019"
-              width={1200}
-              height={541}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="rounded-lg border border-ink-900/10 shadow-sm"
-            />
-            <Image
-              src="/images/factory-floor.webp"
-              alt="Non-woven fabric production line at our manufacturing plant in Erode"
-              width={1200}
-              height={567}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="rounded-lg border border-ink-900/10 shadow-sm"
-            />
-            <Image
-              src="/images/testing-lab.webp"
-              alt="In-house testing laboratory at our manufacturing plant in Erode"
-              width={1200}
-              height={567}
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="rounded-lg border border-ink-900/10 shadow-sm"
-            />
-            <p className="text-sm text-ink-500">
-              Our manufacturing plant in Erode, the production line, and the
-              in-house testing laboratory —{" "}
-              <Link
-                href="/gallery"
-                className="font-semibold text-copper-600 hover:text-copper-700"
-              >
-                see more in the gallery →
-              </Link>
+      <Section eyebrow="Our story" title={story.heading}>
+        <div className="grid gap-12 grid-cols-1 lg:grid-cols-12">
+          <div className="lg:col-span-7">
+            <div className="space-y-5 text-lg leading-relaxed text-ink-700">
+              {story.paragraphs.map((p, i) => (
+                <p key={i} className={i === 0 ? "text-xl text-ink-900" : ""}>
+                  {p}
+                </p>
+              ))}
+            </div>
+            <p className="mt-8 border-l-2 border-copper-600 pl-5 font-serif text-2xl italic leading-snug text-ink-900">
+              {story.nameNote}
             </p>
+          </div>
+          <div className="space-y-3 lg:col-span-5">
+            <Photo name="plantExterior" caption sizes="(min-width: 1024px) 480px, 100vw" />
+            <Photo name="productionFloor" caption sizes="(min-width: 1024px) 480px, 100vw" />
+            <WantedPhoto item={wantedMedia.team} />
           </div>
         </div>
       </Section>
 
-      <Section
-        eyebrow="The business today"
-        title="What we make and where"
-        className="bg-paper-dark"
-      >
-        <p className="max-w-3xl text-lg leading-relaxed text-ink-700">
-          The range is thermal bond non-woven, fusible interlining, woven
-          interlining, coated fabric, geo-textile, and finished home textiles.
-          Uses include apparel interlining, filtration, automotive, and home
-          textiles. Goods are made at our manufacturing plant in Erode.
-        </p>
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
-          {[...pillars, ...whyPartners].map((item) => (
-            <div
-              key={item.title}
-              className="rounded-lg border border-ink-900/10 bg-white p-6 shadow-sm"
-            >
-              <h3 className="font-display text-lg font-bold text-ink-900">
-                {item.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                {item.description}
-              </p>
-            </div>
+      <Section tone="ink" eyebrow="Timeline" title="From hardware to our own fabric">
+        <ol className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {timeline.map((t) => (
+            <li key={t.year} className="border-t border-white/25 pt-5">
+              <span className="num text-4xl font-medium tracking-tight text-copper-400">{t.year}</span>
+              <h3 className="mt-3 font-display text-xl font-bold">{t.title}</h3>
+              <p className="mt-2 leading-relaxed text-ink-300">{t.description}</p>
+            </li>
           ))}
+        </ol>
+      </Section>
+
+      <Section
+        id="people"
+        eyebrow="People"
+        title="Who you will deal with"
+        lead="Enquiries are answered by the people who run the business, not a call center."
+      >
+        <People location="about" />
+      </Section>
+
+      <Section tone="paper-2" id="facts" eyebrow="For your supplier file" title="Company facts">
+        <div className="grid gap-8 grid-cols-1 lg:grid-cols-12">
+          <div className="lg:col-span-8">
+            <div className="relative overflow-x-auto rounded-(--radius-card) border border-line bg-card">
+              <table className="spec-table">
+                <caption className="sr-only">Krisons Marketing company facts</caption>
+                <tbody>
+                  {companyFacts.map((f) => (
+                    <tr key={f.label}>
+                      <th scope="row" className="w-2/5 font-semibold">
+                        {f.label}
+                      </th>
+                      <td>{f.value}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div className="lg:col-span-4">
+            <p className="leading-relaxed text-ink-600">
+              The full profile, with products, machinery and contacts, as a PDF for your supplier onboarding file.
+            </p>
+            <div className="mt-5">
+              <ProfileDownload location="about_facts" />
+            </div>
+          </div>
         </div>
       </Section>
 
-      <Section
-        eyebrow="At a glance"
-        title="Company profile"
-        intro="Key facts about the firm, our manufacturing plant in Erode, and published capabilities."
-      >
-        <SpecTable
-          caption="Krisons Marketing company facts"
-          headers={["Detail", "Value"]}
-          rows={companyFacts.map((f) => [f.label, f.value])}
-        />
-        <p className="mt-6">
-          <a
-            href="/krisons-company-profile.pdf"
-            className="font-semibold text-copper-600 hover:text-copper-700"
-          >
-            Download the full company profile (PDF, 1.3 MB) →
-          </a>
-        </p>
-      </Section>
-
-      <CTABand />
+      <ClosingCta
+        location="about_final"
+        title="The best introduction is a sample."
+        lead="Tell us the product, weight and width. We will send samples."
+      />
     </>
   );
 }

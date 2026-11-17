@@ -16,7 +16,7 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          background: "#16202e",
+          background: "#0b111a",
           backgroundImage:
             "radial-gradient(circle, rgba(255,255,255,0.12) 2px, transparent 2px)",
           backgroundSize: "36px 36px",
@@ -31,7 +31,7 @@ export default function OpengraphImage() {
             textTransform: "uppercase",
           }}
         >
-          Non-Woven Fabric Manufacturer · India · Est. 1992
+          Interlining & Non-Woven Manufacturer · India · Est. 1992
         </div>
         <div
           style={{
@@ -43,7 +43,6 @@ export default function OpengraphImage() {
           }}
         >
           KRISONS
-          <span style={{ color: "#c96a2e", marginLeft: 24 }}>MARKETING</span>
         </div>
         <div
           style={{
@@ -53,7 +52,7 @@ export default function OpengraphImage() {
             color: "rgba(255,255,255,0.75)",
           }}
         >
-          From our manufacturing plant in Erode
+          We make the fabric you never see.
         </div>
         <div
           style={{
@@ -63,7 +62,7 @@ export default function OpengraphImage() {
             color: "rgba(255,255,255,0.75)",
           }}
         >
-          2 million meters a month · Request samples
+          Own plant in Erode · 2 million meters a month · Request samples
         </div>
       </div>
     ),

@@ -1,143 +1,161 @@
+import type { ProductSlug } from "@/lib/data/products";
+
 export interface UseCase {
   name: string;
   description: string;
 }
 
 export interface ApplicationCategory {
-  slug: string;
+  slug: "apparel" | "filtration" | "automotive" | "home-textiles";
   title: string;
+  shortTitle: string;
+  /** Who this page is for. */
+  audience: string;
   intro: string;
   useCases: UseCase[];
+  /** Product families that serve this industry, most relevant first. */
+  products: ProductSlug[];
+  seo: { title: string; description: string };
 }
 
 /**
  * VERIFY: For verification by K. Chandrasekaran
+ * CONTENT-TODO(verify-applications): confirm each use case below is one Krisons fabric is actually sold into, and delete any that are not.
  *
  * Confirmed end uses are apparel interlining, filtration, automotive, and
- * home textiles. The statements below go further (placement, construction, or
- * performance) and are not approved specifications. Confirm or replace each
- * one. Do not add test results or standards.
- *
- * - Apparel intro: "providing internal architecture to clothing."
- * - Front fusing: entire front panel bonded for a smooth, structured chest.
- * - Small part reinforcement: collars, cuffs, pocket flaps, and waistbands "stay crisp after multiple washes."
- * - Stay tapes: narrow strips on bias cuts (necklines, armholes) "to prevent stretching during sewing."
- * - Blouse & shirt plackets: "stiffness buttonholes need so they don't tear or sag."
- * - Technical intro: "Outside apparel, these fabrics are used for filtration and barrier properties." ("barrier" is not a confirmed use.)
- * - Filtration media: "thermal bonding creates a consistent pore size."
- * - Protective clothing: disposable lab coats, coveralls, and shoe covers for cleanrooms.
- * - Cable wrapping: "heat resistance and insulation."
- * - Automotive intro: "Used in vehicle interiors for light weight and sound absorption."
- * - Headliners: "Backing for the fabric on the ceiling of cars."
- * - Trunk liners: "durable, scuff-resistant surface."
- * - Seat construction: stabilizer between foam and upholstery that "keeps leather and fabric from wrinkling."
- * - Embroidery stabilizers: "tear-away versions are often thermal-bonded non-wovens."
- * - Curtain headers: inserted to "support heavy grommets or hooks."
- * - Quilt batting: "Low-loft thermal bond webs provide warmth without the bulk of traditional cotton batting."
- * - Bedding: structural layer in mattress covers and pillow protectors.
+ * home textiles. The use cases below say WHERE the material is used. They make
+ * no performance claims (wash durability, pore size, heat resistance, sound
+ * absorption): those were removed in the Nov 2026 redesign and must not be
+ * added back without test data. Do not add test results or standards here.
  */
 
 export const applicationsIntro =
-  "Thermal bond non-woven interlining is a hidden component. You rarely see it, but it changes the structure of the item it is used in.";
+  "Interlining is the part of a product nobody sees and everybody feels. These are the industries our fabric goes into, and the products we make for each.";
 
 export const applicationCategories: ApplicationCategory[] = [
   {
     slug: "apparel",
-    title: "Apparel Manufacturing",
+    title: "Apparel Interlining",
+    shortTitle: "Apparel",
+    audience: "For garment factories, brands' sourcing teams and interlining distributors",
     intro:
-      "The most common application: providing internal architecture to clothing.",
+      "The structure inside the garment: fronts, collars, cuffs, plackets and waistbands. Thirteen fusible articles from 23 to 80 GSM, used from ladies' and children's wear to blazers and trousers.",
     useCases: [
       {
         name: "Front fusing",
         description:
-          "In mass-produced suits and coats, the entire front panel is bonded with thermal interlining to give the chest a smooth, structured appearance.",
+          "Bonded to the front panel of jackets, blazers and coats to give the chest its shape.",
       },
       {
-        name: "Small part reinforcement",
-        description:
-          "Applied to collars, cuffs, pocket flaps, and waistbands so they stay crisp after multiple washes.",
+        name: "Small parts",
+        description: "Collars, cuffs, pocket flaps, pocket mouths, belt bands and belt loops.",
       },
       {
         name: "Stay tapes",
-        description:
-          "Slit into narrow strips and applied to bias cuts — necklines, armholes — to prevent stretching during sewing.",
+        description: "Slit into narrow strips for necklines, armholes and other bias-cut edges.",
       },
       {
-        name: "Blouse & shirt plackets",
-        description:
-          "Provides the stiffness buttonholes need so they don't tear or sag.",
+        name: "Plackets",
+        description: "Blouse and shirt plackets, where buttonholes need support.",
       },
     ],
+    products: ["fusible-interlining", "woven-interlining", "thermal-bond-non-woven"],
+    seo: {
+      title: "Interlining for Apparel Manufacturers — Fusible & Woven, Made in India",
+      description:
+        "Fusible and woven interlining for garment factories and sourcing teams: fronts, collars, cuffs, plackets, waistbands. 13 articles, 23–80 GSM. Manufactured in Erode, India.",
+    },
   },
   {
-    slug: "industrial",
-    title: "Technical & Industrial",
+    slug: "filtration",
+    title: "Filtration & Technical",
+    shortTitle: "Filtration",
+    audience: "For filter makers and technical-textile converters",
     intro:
-      "Outside apparel, these fabrics are used for filtration and barrier properties.",
+      "Thermal bond polyester non-woven as a media or support layer, supplied in the weight and width your converting line runs.",
     useCases: [
       {
         name: "Filtration media",
-        description:
-          "Air-conditioning filters, vacuum cleaner bags, and liquid filtration — thermal bonding creates a consistent pore size.",
+        description: "Air-conditioning filters, vacuum cleaner bags and liquid filtration.",
       },
       {
         name: "Protective clothing",
-        description:
-          "Disposable lab coats, coveralls, and shoe covers for cleanroom environments.",
+        description: "Disposable lab coats, coveralls and shoe covers.",
       },
       {
         name: "Cable wrapping",
-        description:
-          "Binding tape for wire harnesses in electronics, providing heat resistance and insulation.",
+        description: "Binding tape for wire harnesses.",
       },
     ],
+    products: ["thermal-bond-non-woven"],
+    seo: {
+      title: "Non-Woven Fabric for Filtration & Technical Uses — Manufacturer, India",
+      description:
+        "Thermal bond polyester non-woven for filtration media and technical converting, 23–80 GSM, 100–200 cm wide. Manufactured in Erode, India. Request samples.",
+    },
   },
   {
     slug: "automotive",
-    title: "Automotive",
-    intro: "Used in vehicle interiors for light weight and sound absorption.",
+    title: "Automotive Interiors",
+    shortTitle: "Automotive",
+    audience: "For automotive trim suppliers and their sourcing teams",
+    intro:
+      "Light non-woven layers for vehicle interiors, behind the surfaces passengers see.",
     useCases: [
       {
         name: "Headliners",
-        description: "Backing for the fabric on the ceiling of cars.",
+        description: "Backing for the ceiling fabric.",
       },
       {
         name: "Trunk liners",
-        description:
-          "A durable, scuff-resistant surface for the interior of the trunk.",
+        description: "Lining for the luggage compartment.",
       },
       {
         name: "Seat construction",
-        description:
-          "A stabilizer between foam and outer upholstery that keeps leather and fabric from wrinkling.",
+        description: "A layer between foam and outer upholstery.",
       },
     ],
+    products: ["thermal-bond-non-woven"],
+    seo: {
+      title: "Non-Woven Fabric for Automotive Interiors — Manufacturer, India",
+      description:
+        "Thermal bond polyester non-woven for headliners, trunk liners and seat construction. 23–80 GSM, up to 200 cm wide. Manufactured in Erode, India.",
+    },
   },
   {
     slug: "home-textiles",
-    title: "Home Textiles & Accessories",
-    intro: "Structure and support in furnishing, bedding, and craft applications.",
+    title: "Home Textiles",
+    shortTitle: "Home textiles",
+    audience: "For home-textile brands, importers and hospitality buyers",
+    intro:
+      "Non-woven as a component in bedding and furnishing, and a range of finished goods we make ourselves.",
     useCases: [
       {
-        name: "Embroidery stabilizers",
-        description:
-          "Applied to the back of fabric before stitching complex designs; tear-away versions are often thermal-bonded non-wovens.",
+        name: "Embroidery backing",
+        description: "Applied to the back of fabric before stitching.",
       },
       {
         name: "Curtain headers",
-        description:
-          "Inserted into the top of drapes to support heavy grommets or hooks.",
+        description: "Inserted into the top of drapes.",
       },
       {
-        name: "Quilt batting",
-        description:
-          "Low-loft thermal bond webs provide warmth without the bulk of traditional cotton batting.",
+        name: "Quilting",
+        description: "Batting support in quilts.",
       },
       {
         name: "Bedding",
-        description:
-          "A structural layer in mattress covers and pillow protectors.",
+        description: "A layer in mattress covers and pillow protectors.",
       },
     ],
+    products: ["home-textiles", "thermal-bond-non-woven", "fusible-interlining"],
+    seo: {
+      title: "Home Textiles & Non-Woven Components — Manufacturer, India",
+      description:
+        "Non-woven for bedding, quilting and furnishing, plus finished pillows, bed runners, mattress protectors and toppers. Manufactured in Erode, India.",
+    },
   },
 ];
+
+export function getApplication(slug: string): ApplicationCategory | undefined {
+  return applicationCategories.find((a) => a.slug === slug);
+}
